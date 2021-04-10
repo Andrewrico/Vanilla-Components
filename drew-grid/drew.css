@@ -1,0 +1,863 @@
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.section {
+    --padding: 4rem 0;
+    padding: var(--padding);
+}
+
+.section-gap-0 { --padding: 0; }
+.section-gap-1 { --padding: 1rem 0; }
+.section-gap-2 { --padding: 2rem 0; }
+.section-gap-3 { --padding: 3rem 0; }
+.section-gap-4 { --padding: 4rem 0; }
+
+.grid {
+    display: -ms-grid;
+    display: grid;
+    margin: auto;
+    grid-gap: var(--grid-gap);
+    max-width: var(--max-width);
+    width: var(--width);
+    --max-width: 1366px;
+    --width: 100%;
+    --grid-gap: 1rem;
+    --grid-template-columns: 1fr;
+    border:1px solid green;
+}
+
+.width-70 { --width: 70%; }
+.width-80 { --width: 80%; }
+.width-90 { --width: 90%; }
+.width-100 { --width: 100%; }
+.max-width-70 { --max-width: 70%; }
+.max-width-80 { --max-width: 80%; }
+.max-width-90 { --max-width: 90%; }
+.max-width-100 { --max-width: 100%; }
+.max-width-768 { --max-width: 768px; }
+.max-width-1024 { --max-width: 1024px; }
+.max-width-1268 { --max-width: 1268px; }
+.max-width-1366 { --max-width: 1366px; }
+
+.gap-0 { --grid-gap: 0; }
+.gap-1 { --grid-gap: 1rem; }
+.gap-2 { --grid-gap: 2rem; }
+.gap-3 { --grid-gap: 3rem; }
+.gap-4 { --grid-gap: 4rem; }
+.gap-2x { --grid-gap: 2px; }
+.gap-4x {--grid-gap: 4px; }
+.gap-8x { --grid-gap: 8px; }
+.gap-12x { --grid-gap: 12px; }
+
+.grid[class*="column-"] {
+    -ms-grid-columns: var(--ms-grid-columns);
+    grid-template-columns: var(--grid-template-columns);
+}
+
+.row { grid-column: 1 / -1; }
+
+@media all and (max-width: 1024px) {
+
+    .column-1,
+    .column-2,
+    .column-3,
+    .column-4,
+    .column-5,
+    .column-6,
+    .column-7,
+    .column-8,
+    .column-9,
+    .column-10,
+    .column-11,
+    .column-12 {
+        --ms-grid-columns: 1fr;
+        --grid-template-columns: 1fr;
+    }
+
+    .column-2.first-2,
+    .column-3.first-2,
+    .column-4.first-2,
+    .column-5.first-2,
+    .column-6.first-2,
+    .column-7.first-2,
+    .column-8.first-2,
+    .column-9.first-2,
+    .column-10.first-2,
+    .column-11.first-2,
+    .column-12.first-2 {
+        --ms-grid-columns: (1fr)[2];
+        --grid-template-columns: repeat(2, 1fr);
+    }
+
+    .column-2.first-3,
+    .column-3.first-3,
+    .column-4.first-3,
+    .column-5.first-3,
+    .column-6.first-3,
+    .column-7.first-3,
+    .column-8.first-3,
+    .column-9.first-3,
+    .column-10.first-3,
+    .column-11.first-3,
+    .column-12.first-3 {
+        --ms-grid-columns: (1fr)[3];
+        --grid-template-columns: repeat(3, 1fr);
+    }
+
+    .column-2.first-4,
+    .column-3.first-4,
+    .column-4.first-4,
+    .column-5.first-4,
+    .column-6.first-4,
+    .column-7.first-4,
+    .column-8.first-4,
+    .column-9.first-4,
+    .column-10.first-4,
+    .column-11.first-4,
+    .column-12.first-4 {
+        --ms-grid-columns: (1fr)[4];
+        --grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media all and (min-width: 768px) {
+
+    .column-2,
+    .column-5,
+    .column-4,
+    .column-6,
+    .column-8,
+    .column-9,
+    .column-10,
+    .column-11,
+    .column-12 {
+        --ms-grid-columns: (1fr)[2];
+        --grid-template-columns: repeat(2, 1fr);
+    }
+
+    .column-3 {
+        --ms-grid-columns: (1fr)[3];
+        --grid-template-columns: repeat(3, 1fr);
+    }
+
+    .column-2.mixed-1sm-1md,
+    .column-2.mixed-1sm-1lg,
+    .column-2.mixed-1md-1sm,
+    .column-2.mixed-1md-1lg,
+    .column-2.mixed-1lg-1sm,
+    .column-2.mixed-1lg-1md,
+    .column-3.mixed-1sm-1sm-1md,
+    .column-3.mixed-1sm-1sm-1lg,
+    .column-3.mixed-1sm-1md-1sm,
+    .column-3.mixed-1sm-1md-1md,
+    .column-3.mixed-1sm-1md-1lg,
+    .column-3.mixed-1sm-1lg-1sm,
+    .column-3.mixed-1sm-1lg-1md,
+    .column-3.mixed-1sm-1lg-1lg,
+    .column-3.mixed-1md-1sm-1sm,
+    .column-3.mixed-1md-1sm-1md,
+    .column-3.mixed-1md-1sm-1lg,
+    .column-3.mixed-1md-1md-1sm,
+    .column-3.mixed-1md-1md-1lg,
+    .column-3.mixed-1md-1lg-1sm,
+    .column-3.mixed-1md-1lg-1md,
+    .column-3.mixed-1md-1lg-1lg,
+    .column-3.mixed-1lg-1sm-1sm,
+    .column-3.mixed-1lg-1sm-1md,
+    .column-3.mixed-1lg-1sm-1lg,
+    .column-3.mixed-1lg-1md-1sm,
+    .column-3.mixed-1lg-1md-1md,
+    .column-3.mixed-1lg-1md-1lg,
+    .column-3.mixed-1lg-1lg-1sm,
+    .column-3.mixed-1lg-1lg-1md,
+    .column-4.mixed-1sm-1sm-1sm-1md,
+    .column-4.mixed-1sm-1sm-1sm-1lg,
+    .column-4.mixed-1sm-1sm-1md-1sm,
+    .column-4.mixed-1sm-1sm-1md-1md,
+    .column-4.mixed-1sm-1sm-1md-1lg,
+    .column-4.mixed-1sm-1sm-1lg-1sm,
+    .column-4.mixed-1sm-1sm-1lg-1md,
+    .column-4.mixed-1sm-1sm-1lg-1lg,
+    .column-4.mixed-1sm-1md-1sm-1sm,
+    .column-4.mixed-1sm-1md-1sm-1md,
+    .column-4.mixed-1sm-1md-1sm-1lg,
+    .column-4.mixed-1sm-1md-1md-1sm,
+    .column-4.mixed-1sm-1md-1md-1md,
+    .column-4.mixed-1sm-1md-1md-1lg,
+    .column-4.mixed-1sm-1md-1lg-1sm,
+    .column-4.mixed-1sm-1md-1lg-1md,
+    .column-4.mixed-1sm-1md-1lg-1lg,
+    .column-4.mixed-1sm-1lg-1sm-1sm,
+    .column-4.mixed-1sm-1lg-1sm-1md,
+    .column-4.mixed-1sm-1lg-1sm-1lg,
+    .column-4.mixed-1sm-1lg-1md-1sm,
+    .column-4.mixed-1sm-1lg-1md-1md,
+    .column-4.mixed-1sm-1lg-1md-1lg,
+    .column-4.mixed-1sm-1lg-1lg-1sm,
+    .column-4.mixed-1sm-1lg-1lg-1md,
+    .column-4.mixed-1sm-1lg-1lg-1lg,
+    .column-4.mixed-1md-1sm-1sm-1sm,
+    .column-4.mixed-1md-1sm-1sm-1md,
+    .column-4.mixed-1md-1sm-1sm-1lg,
+    .column-4.mixed-1md-1sm-1md-1sm,
+    .column-4.mixed-1md-1sm-1md-1md,
+    .column-4.mixed-1md-1sm-1md-1lg,
+    .column-4.mixed-1md-1sm-1lg-1sm,
+    .column-4.mixed-1md-1sm-1lg-1md,
+    .column-4.mixed-1md-1sm-1lg-1lg,
+    .column-4.mixed-1md-1md-1sm-1sm,
+    .column-4.mixed-1md-1md-1sm-1md,
+    .column-4.mixed-1md-1md-1sm-1lg,
+    .column-4.mixed-1md-1md-1md-1sm,
+    .column-4.mixed-1md-1md-1md-1lg,
+    .column-4.mixed-1md-1md-1lg-1sm,
+    .column-4.mixed-1md-1md-1lg-1md,
+    .column-4.mixed-1md-1md-1lg-1lg,
+    .column-4.mixed-1md-1lg-1sm-1sm,
+    .column-4.mixed-1md-1lg-1sm-1md,
+    .column-4.mixed-1md-1lg-1sm-1lg,
+    .column-4.mixed-1md-1lg-1md-1sm,
+    .column-4.mixed-1md-1lg-1md-1md,
+    .column-4.mixed-1md-1lg-1md-1lg,
+    .column-4.mixed-1md-1lg-1lg-1sm,
+    .column-4.mixed-1md-1lg-1lg-1md,
+    .column-4.mixed-1md-1lg-1lg-1lg,
+    .column-4.mixed-1lg-1sm-1sm-1sm,
+    .column-4.mixed-1lg-1sm-1sm-1md,
+    .column-4.mixed-1lg-1sm-1sm-1lg,
+    .column-4.mixed-1lg-1sm-1md-1sm,
+    .column-4.mixed-1lg-1sm-1md-1md,
+    .column-4.mixed-1lg-1sm-1md-1lg,
+    .column-4.mixed-1lg-1sm-1lg-1sm,
+    .column-4.mixed-1lg-1sm-1lg-1md,
+    .column-4.mixed-1lg-1sm-1lg-1lg,
+    .column-4.mixed-1lg-1md-1sm-1sm,
+    .column-4.mixed-1lg-1md-1sm-1md,
+    .column-4.mixed-1lg-1md-1sm-1lg,
+    .column-4.mixed-1lg-1md-1md-1sm,
+    .column-4.mixed-1lg-1md-1md-1md,
+    .column-4.mixed-1lg-1md-1md-1lg,
+    .column-4.mixed-1lg-1md-1lg-1sm,
+    .column-4.mixed-1lg-1md-1lg-1md,
+    .column-4.mixed-1lg-1md-1lg-1lg,
+    .column-4.mixed-1lg-1lg-1sm-1sm,
+    .column-4.mixed-1lg-1lg-1sm-1md,
+    .column-4.mixed-1lg-1lg-1sm-1lg,
+    .column-4.mixed-1lg-1lg-1md-1sm,
+    .column-4.mixed-1lg-1lg-1md-1md,
+    .column-4.mixed-1lg-1lg-1md-1lg,
+    .column-4.mixed-1lg-1lg-1lg-1sm,
+    .column-4.mixed-1lg-1lg-1lg-1md {
+        --ms-grid-columns: (1fr)[2];
+        --grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media all and (min-width: 1024px) {
+
+    .column-3,
+    .column-6,
+    .column-12 {
+        --ms-grid-columns: (1fr)[3];
+        --grid-template-columns: repeat(3, 1fr);
+    }
+
+    .column-4,
+    .column-8 {
+        --ms-grid-columns: (1fr)[4];
+        --grid-template-columns: repeat(4, 1fr);
+    }
+
+    .column-5,
+    .column-9,
+    .column-10,
+    .column-11 {
+        --ms-grid-columns: (1fr)[5];
+        --grid-template-columns: repeat(5, 1fr);
+    }
+
+    .column-2.mixed-small\,medium {
+        --grid-template-columns: 1fr 2fr;
+    }
+
+    .column-2.mixed-small\,large {
+        --ms-grid-columns: 1fr 3fr;
+        --grid-template-columns: 1fr 3fr;
+    }
+
+    .column-2.mixed-1md-1sm {
+        --ms-grid-columns: 2fr 1fr;
+        --grid-template-columns: 2fr 1fr;
+    }
+
+    .column-2.mixed-1md-1lg {
+        --ms-grid-columns: 2fr 3fr;
+        --grid-template-columns: 2fr 3fr;
+    }
+
+    .column-2.mixed-1lg-1sm {
+        --ms-grid-columns: 3fr 1fr;
+        --grid-template-columns: 3fr 1fr;
+    }
+
+    .column-2.mixed-1lg-1md {
+        --ms-grid-columns: 3fr 2fr;
+        --grid-template-columns: 3fr 2fr;
+    }
+
+    .column-3.mixed-1sm-1sm-1md {
+        --ms-grid-columns: 1fr 1fr 2fr;
+        --grid-template-columns: 1fr 1fr 2fr;
+    }
+
+    .column-3.mixed-1sm-1sm-1lg {
+        --ms-grid-columns: 1fr 1fr 3fr;
+        --grid-template-columns: 1fr 1fr 3fr;
+    }
+
+    .column-3.mixed-1sm-1md-1sm {
+        --ms-grid-columns: 1fr 2fr 1fr;
+        --grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    .column-3.mixed-1sm-1md-1md {
+        --ms-grid-columns: 1fr 2fr 2fr;
+        --grid-template-columns: 1fr 2fr 2fr;
+    }
+
+    .column-3.mixed-1sm-1md-1lg {
+        --ms-grid-columns: 1fr 2fr 3fr;
+        --grid-template-columns: 1fr 2fr 3fr;
+    }
+
+    .column-3.mixed-1sm-1lg-1sm {
+        --ms-grid-columns: 1fr 3fr 1fr;
+        --grid-template-columns: 1fr 3fr 1fr;
+    }
+
+    .column-3.mixed-1sm-1lg-1md {
+        --ms-grid-columns: 1fr 3fr 2fr;
+        --grid-template-columns: 1fr 3fr 2fr;
+    }
+
+    .column-3.mixed-1sm-1lg-1lg {
+        --ms-grid-columns: 1fr 3fr 3fr;
+        --grid-template-columns: 1fr 3fr 3fr;
+    }
+
+    .column-3.mixed-1md-1sm-1sm {
+        --ms-grid-columns: 2fr 1fr 1fr;
+        --grid-template-columns: 2fr 1fr 1fr;
+    }
+
+    .column-3.mixed-1md-1sm-1md {
+        --ms-grid-columns: 2fr 1fr 2fr;
+        --grid-template-columns: 2fr 1fr 2fr;
+    }
+
+    .column-3.mixed-1md-1sm-1lg {
+        --ms-grid-columns: 2fr 1fr 3fr;
+        --grid-template-columns: 2fr 1fr 3fr;
+    }
+
+    .column-3.mixed-1md-1md-1sm {
+        --ms-grid-columns: 2fr 2fr 1fr;
+        --grid-template-columns: 2fr 2fr 1fr;
+    }
+
+    .column-3.mixed-1md-1md-1lg {
+        --ms-grid-columns: 2fr 2fr 3fr;
+        --grid-template-columns: 2fr 2fr 3fr;
+    }
+
+    .column-3.mixed-1md-1lg-1sm {
+        --ms-grid-columns: 2fr 3fr 1fr;
+        --grid-template-columns: 2fr 3fr 1fr;
+    }
+
+    .column-3.mixed-1md-1lg-1md {
+        --ms-grid-columns: 2fr 3fr 2fr;
+        --grid-template-columns: 2fr 3fr 2fr;
+    }
+
+    .column-3.mixed-1md-1lg-1lg {
+        --ms-grid-columns: 2fr 3fr 3fr;
+        --grid-template-columns: 2fr 3fr 3fr;
+    }
+
+    .column-3.mixed-1lg-1sm-1sm {
+        --ms-grid-columns: 3fr 1fr 1fr;
+        --grid-template-columns: 3fr 1fr 1fr;
+    }
+
+    .column-3.mixed-1lg-1sm-1md {
+        --ms-grid-columns: 3fr 1fr 2fr;
+        --grid-template-columns: 3fr 1fr 2fr;
+    }
+
+    .column-3.mixed-1lg-1sm-1lg {
+        --ms-grid-columns: 3fr 1fr 3fr;
+        --grid-template-columns: 3fr 1fr 3fr;
+    }
+
+    .column-3.mixed-1lg-1md-1sm {
+        --ms-grid-columns: 3fr 2fr 1fr;
+        --grid-template-columns: 3fr 2fr 1fr;
+    }
+
+    .column-3.mixed-1lg-1md-1md {
+        --ms-grid-columns: 3fr 2fr 2fr;
+        --grid-template-columns: 3fr 2fr 2fr;
+    }
+
+    .column-3.mixed-1lg-1md-1lg {
+        --ms-grid-columns: 3fr 2fr 3fr;
+        --grid-template-columns: 3fr 2fr 3fr;
+    }
+
+    .column-3.mixed-1lg-1lg-1sm {
+        --ms-grid-columns: 3fr 3fr 1fr;
+        --grid-template-columns: 3fr 3fr 1fr;
+    }
+
+    .column-3.mixed-1lg-1lg-1md {
+        --ms-grid-columns: 3fr 3fr 2fr;
+        --grid-template-columns: 3fr 3fr 2fr;
+    }
+
+    .column-4.mixed-1sm-1sm-1sm-1md {
+        --ms-grid-columns: 1fr 1fr 1fr 2fr;
+        --grid-template-columns: 1fr 1fr 1fr 2fr;
+    }
+
+    .column-4.mixed-1sm-1sm-1sm-1lg {
+        --ms-grid-columns: 1fr 1fr 1fr 3fr;
+        --grid-template-columns: 1fr 1fr 1fr 3fr;
+    }
+
+    .column-4.mixed-1sm-1sm-1md-1sm {
+        --ms-grid-columns: 1fr 1fr 2fr 1fr;
+        --grid-template-columns: 1fr 1fr 2fr 1fr;
+    }
+
+    .column-4.mixed-1sm-1sm-1md-1md {
+        --ms-grid-columns: 1fr 1fr 2fr 2fr;
+        --grid-template-columns: 1fr 1fr 2fr 2fr;
+    }
+
+    .column-4.mixed-1sm-1sm-1md-1lg {
+        --ms-grid-columns: 1fr 1fr 2fr 3fr;
+        --grid-template-columns: 1fr 1fr 2fr 3fr;
+    }
+
+    .column-4.mixed-1sm-1sm-1lg-1sm {
+        --ms-grid-columns: 1fr 1fr 3fr 1fr;
+        --grid-template-columns: 1fr 1fr 3fr 1fr;
+    }
+
+    .column-4.mixed-1sm-1sm-1lg-1md {
+        --ms-grid-columns: 1fr 1fr 3fr 2fr;
+        --grid-template-columns: 1fr 1fr 3fr 2fr;
+    }
+
+    .column-4.mixed-1sm-1sm-1lg-1lg {
+        --ms-grid-columns: 1fr 1fr 3fr 3fr;
+        --grid-template-columns: 1fr 1fr 3fr 3fr;
+    }
+
+    .column-4.mixed-1sm-1md-1sm-1sm {
+        --ms-grid-columns: 1fr 2fr 1fr 1fr;
+        --grid-template-columns: 1fr 2fr 1fr 1fr;
+    }
+
+    .column-4.mixed-1sm-1md-1sm-1md {
+        --ms-grid-columns: 1fr 2fr 1fr 2fr;
+        --grid-template-columns: 1fr 2fr 1fr 2fr;
+    }
+
+    .column-4.mixed-1sm-1md-1sm-1lg {
+        --ms-grid-columns: 1fr 2fr 1fr 3fr;
+        --grid-template-columns: 1fr 2fr 1fr 3fr;
+    }
+
+    .column-4.mixed-1sm-1md-1md-1sm {
+        --ms-grid-columns: 1fr 2fr 2fr 1fr;
+        --grid-template-columns: 1fr 2fr 2fr 1fr;
+    }
+
+    .column-4.mixed-1sm-1md-1md-1md {
+        --ms-grid-columns: 1fr 2fr 2fr 2fr;
+        --grid-template-columns: 1fr 2fr 2fr 2fr;
+    }
+
+    .column-4.mixed-1sm-1md-1md-1lg {
+        --ms-grid-columns: 1fr 2fr 2fr 3fr;
+        --grid-template-columns: 1fr 2fr 2fr 3fr;
+    }
+
+    .column-4.mixed-1sm-1md-1lg-1sm {
+        --ms-grid-columns: 1fr 2fr 3fr 1fr;
+        --grid-template-columns: 1fr 2fr 3fr 1fr;
+    }
+
+    .column-4.mixed-1sm-1md-1lg-1md {
+        --ms-grid-columns: 1fr 2fr 3fr 2fr;
+        --grid-template-columns: 1fr 2fr 3fr 2fr;
+    }
+
+    .column-4.mixed-1sm-1md-1lg-1lg {
+        --ms-grid-columns: 1fr 2fr 3fr 3fr;
+        --grid-template-columns: 1fr 2fr 3fr 3fr;
+    }
+
+    .column-4.mixed-1sm-1lg-1sm-1sm {
+        --ms-grid-columns: 1fr 3fr 1fr 1fr;
+        --grid-template-columns: 1fr 3fr 1fr 1fr;
+    }
+
+    .column-4.mixed-1sm-1lg-1sm-1md {
+        --ms-grid-columns: 1fr 3fr 1fr 2fr;
+        --grid-template-columns: 1fr 3fr 1fr 2fr;
+    }
+
+    .column-4.mixed-1sm-1lg-1sm-1lg {
+        --ms-grid-columns: 1fr 3fr 1fr 3fr;
+        --grid-template-columns: 1fr 3fr 1fr 3fr;
+    }
+
+    .column-4.mixed-1sm-1lg-1md-1sm {
+        --ms-grid-columns: 1fr 3fr 2fr 1fr;
+        --grid-template-columns: 1fr 3fr 2fr 1fr;
+    }
+
+    .column-4.mixed-1sm-1lg-1md-1md {
+        --ms-grid-columns: 1fr 3fr 2fr 2fr;
+        --grid-template-columns: 1fr 3fr 2fr 2fr;
+    }
+
+    .column-4.mixed-1sm-1lg-1md-1lg {
+        --ms-grid-columns: 1fr 3fr 2fr 3fr;
+        --grid-template-columns: 1fr 3fr 2fr 3fr;
+    }
+
+    .column-4.mixed-1sm-1lg-1lg-1sm {
+        --ms-grid-columns: 1fr 3fr 3fr 1fr;
+        --grid-template-columns: 1fr 3fr 3fr 1fr;
+    }
+
+    .column-4.mixed-1sm-1lg-1lg-1md {
+        --ms-grid-columns: 1fr 3fr 3fr 2fr;
+        --grid-template-columns: 1fr 3fr 3fr 2fr;
+    }
+
+    .column-4.mixed-1sm-1lg-1lg-1lg {
+        --ms-grid-columns: 1fr 3fr 3fr 3fr;
+        --grid-template-columns: 1fr 3fr 3fr 3fr;
+    }
+
+    .column-4.mixed-1md-1sm-1sm-1sm {
+        --ms-grid-columns: 2fr 1fr 1fr 1fr;
+        --grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+
+    .column-4.mixed-1md-1sm-1sm-1md {
+        --ms-grid-columns: 2fr 1fr 1fr 2fr;
+        --grid-template-columns: 2fr 1fr 1fr 2fr;
+    }
+
+    .column-4.mixed-1md-1sm-1sm-1lg {
+        --ms-grid-columns: 2fr 1fr 1fr 3fr;
+        --grid-template-columns: 2fr 1fr 1fr 3fr;
+    }
+
+    .column-4.mixed-1md-1sm-1md-1sm {
+        --ms-grid-columns: 2fr 1fr 2fr 1fr;
+        --grid-template-columns: 2fr 1fr 2fr 1fr;
+    }
+
+    .column-4.mixed-1md-1sm-1md-1md {
+        --ms-grid-columns: 2fr 1fr 2fr 2fr;
+        --grid-template-columns: 2fr 1fr 2fr 2fr;
+    }
+
+    .column-4.mixed-1md-1sm-1md-1lg {
+        --ms-grid-columns: 2fr 1fr 2fr 3fr;
+        --grid-template-columns: 2fr 1fr 2fr 3fr;
+    }
+
+    .column-4.mixed-1md-1sm-1lg-1sm {
+        --ms-grid-columns: 2fr 1fr 3fr 1fr;
+        --grid-template-columns: 2fr 1fr 3fr 1fr;
+    }
+
+    .column-4.mixed-1md-1sm-1lg-1md {
+        --ms-grid-columns: 2fr 1fr 3fr 2fr;
+        --grid-template-columns: 2fr 1fr 3fr 2fr;
+    }
+
+    .column-4.mixed-1md-1sm-1lg-1lg {
+        --ms-grid-columns: 2fr 1fr 3fr 3fr;
+        --grid-template-columns: 2fr 1fr 3fr 3fr;
+    }
+
+    .column-4.mixed-1md-1md-1sm-1sm {
+        --ms-grid-columns: 2fr 2fr 1fr 1fr;
+        --grid-template-columns: 2fr 2fr 1fr 1fr;
+    }
+
+    .column-4.mixed-1md-1md-1sm-1md {
+        --ms-grid-columns: 2fr 2fr 1fr 2fr;
+        --grid-template-columns: 2fr 2fr 1fr 2fr;
+    }
+
+    .column-4.mixed-1md-1md-1sm-1lg {
+        --ms-grid-columns: 2fr 2fr 1fr 3fr;
+        --grid-template-columns: 2fr 2fr 1fr 3fr;
+    }
+
+    .column-4.mixed-1md-1md-1md-1 {
+        --ms-grid-columns: 2fr 2fr 2fr 1fr;
+        --grid-template-columns: 2fr 2fr 2fr 1fr;
+    }
+
+    .column-4.mixed-1md-1md-1md-1lg {
+        --ms-grid-columns: 2fr 2fr 2fr 3fr;
+        --grid-template-columns: 2fr 2fr 2fr 3fr;
+    }
+
+    .column-4.mixed-1md-1md-1lg-1sm {
+        --ms-grid-columns: 2fr 2fr 3fr 1fr;
+        --grid-template-columns: 2fr 2fr 3fr 1fr;
+    }
+
+    .column-4.mixed-1md-1md-1lg-1md {
+        --ms-grid-columns: 2fr 2fr 3fr 2fr;
+        --grid-template-columns: 2fr 2fr 3fr 2fr;
+    }
+
+    .column-4.mixed-1md-1md-1lg-1lg {
+        --ms-grid-columns: 2fr 2fr 3fr 3fr;
+        --grid-template-columns: 2fr 2fr 3fr 3fr;
+    }
+
+    .column-4.mixed-1md-1lg-1sm-1sm {
+        --ms-grid-columns: 2fr 3fr 1fr 1fr;
+        --grid-template-columns: 2fr 3fr 1fr 1fr;
+    }
+
+    .column-4.mixed-1md-1lg-1sm-1md {
+        --ms-grid-columns: 2fr 3fr 1fr 2fr;
+        --grid-template-columns: 2fr 3fr 1fr 2fr;
+    }
+
+    .column-4.mixed-1md-1lg-1sm-1lg {
+        --ms-grid-columns: 2fr 3fr 1fr 3fr;
+        --grid-template-columns: 2fr 3fr 1fr 3fr;
+    }
+
+    .column-4.mixed-1md-1lg-1md-1sm {
+        --ms-grid-columns: 2fr 3fr 2fr 1fr;
+        --grid-template-columns: 2fr 3fr 2fr 1fr;
+    }
+
+    .column-4.mixed-1md-1lg-1md-1md {
+        --ms-grid-columns: 2fr 3fr 2fr 2fr;
+        --grid-template-columns: 2fr 3fr 2fr 2fr;
+    }
+
+    .column-4.mixed-1md-1lg-1md-1lg {
+        --ms-grid-columns: 2fr 3fr 2fr 3fr;
+        --grid-template-columns: 2fr 3fr 2fr 3fr;
+    }
+
+    .column-4.mixed-1md-1lg-1lg-1sm {
+        --ms-grid-columns: 2fr 3fr 3fr 1fr;
+        --grid-template-columns: 2fr 3fr 3fr 1fr;
+    }
+
+    .column-4.mixed-1md-1lg-1lg-1md {
+        --ms-grid-columns: 2fr 3fr 3fr 2fr;
+        --grid-template-columns: 2fr 3fr 3fr 2fr;
+    }
+
+    .column-4.mixed-1md-1lg-1lg-1lg {
+        --ms-grid-columns: 2fr 3fr 3fr 3fr;
+        --grid-template-columns: 2fr 3fr 3fr 3fr;
+    }
+
+    .column-4.mixed-1lg-1sm-1sm-1sm {
+        --ms-grid-columns: 3fr 1fr 1fr 1fr;
+        --grid-template-columns: 3fr 1fr 1fr 1fr;
+    }
+
+    .column-4.mixed-1lg-1sm-1sm-1md {
+        --ms-grid-columns: 3fr 1fr 1fr 2fr;
+        --grid-template-columns: 3fr 1fr 1fr 2fr;
+    }
+
+    .column-4.mixed-1lg-1sm-1sm-1lg {
+        --ms-grid-columns: 3fr 1fr 1fr 3fr;
+        --grid-template-columns: 3fr 1fr 1fr 3fr;
+    }
+
+    .column-4.mixed-1lg-1sm-1md-1sm {
+        --ms-grid-columns: 3fr 1fr 2fr 1fr;
+        --grid-template-columns: 3fr 1fr 2fr 1fr;
+    }
+
+    .column-4.mixed-1lg-1sm-1md-1md {
+        --ms-grid-columns: 3fr 1fr 2fr 2fr;
+        --grid-template-columns: 3fr 1fr 2fr 2fr;
+    }
+
+    .column-4.mixed-1lg-1sm-1md-1lg {
+        --ms-grid-columns: 3fr 1fr 2fr 3fr;
+        --grid-template-columns: 3fr 1fr 2fr 3fr;
+    }
+
+    .column-4.mixed-1lg-1sm-1lg-1sm {
+        --ms-grid-columns: 3fr 1fr 3fr 1fr;
+        --grid-template-columns: 3fr 1fr 3fr 1fr;
+    }
+
+    .column-4.mixed-1lg-1sm-1lg-1md {
+        --ms-grid-columns: 3fr 1fr 3fr 2fr;
+        --grid-template-columns: 3fr 1fr 3fr 2fr;
+    }
+
+    .column-4.mixed-1lg-1sm-1lg-1lg {
+        --ms-grid-columns: 3fr 1fr 3fr 3fr;
+        --grid-template-columns: 3fr 1fr 3fr 3fr;
+    }
+
+    .column-4.mixed-1lg-1md-1sm-1sm {
+        --ms-grid-columns: 3fr 2fr 1fr 1fr;
+        --grid-template-columns: 3fr 2fr 1fr 1fr;
+    }
+
+    .column-4.mixed-1lg-1md-1sm-1md {
+        --ms-grid-columns: 3fr 2fr 1fr 2fr;
+        --grid-template-columns: 3fr 2fr 1fr 2fr;
+    }
+
+    .column-4.mixed-1lg-1md-1sm-1lg {
+        --ms-grid-columns: 3fr 2fr 1fr 3fr;
+        --grid-template-columns: 3fr 2fr 1fr 3fr;
+    }
+
+    .column-4.mixed-1lg-1md-1md-1sm {
+        --ms-grid-columns: 3fr 2fr 2fr 1fr;
+        --grid-template-columns: 3fr 2fr 2fr 1fr;
+    }
+
+    .column-4.mixed-1lg-1md-1md-1md {
+        --ms-grid-columns: 3fr 2fr 2fr 2fr;
+        --grid-template-columns: 3fr 2fr 2fr 2fr;
+    }
+
+    .column-4.mixed-1lg-1md-1md-1lg {
+        --ms-grid-columns: 3fr 2fr 2fr 3fr;
+        --grid-template-columns: 3fr 2fr 2fr 3fr;
+    }
+
+    .column-4.mixed-1lg-1md-1lg-1sm {
+        --ms-grid-columns: 3fr 2fr 3fr 1fr;
+        --grid-template-columns: 3fr 2fr 3fr 1fr;
+    }
+
+    .column-4.mixed-1lg-1md-1lg-1md {
+        --ms-grid-columns: 3fr 2fr 3fr 2fr;
+        --grid-template-columns: 3fr 2fr 3fr 2fr;
+    }
+
+    .column-4.mixed-1lg-1md-1lg-1lg {
+        --ms-grid-columns: 3fr 2fr 3fr 3fr;
+        --grid-template-columns: 3fr 2fr 3fr 3fr;
+    }
+
+    .column-4.mixed-1lg-1lg-1sm-1sm {
+        --ms-grid-columns: 3fr 3fr 1fr 1fr;
+        --grid-template-columns: 3fr 3fr 1fr 1fr;
+    }
+
+    .column-4.mixed-1lg-1lg-1sm-1md {
+        --ms-grid-columns: 3fr 3fr 1fr 2fr;
+        --grid-template-columns: 3fr 3fr 1fr 2fr;
+    }
+
+    .column-4.mixed-1lg-1lg-1sm-1lg {
+        --ms-grid-columns: 3fr 3fr 1fr 3fr;
+        --grid-template-columns: 3fr 3fr 1fr 3fr;
+    }
+
+    .column-4.mixed-1lg-1lg-1md-1sm {
+        --ms-grid-columns: 3fr 3fr 2fr 1fr;
+        --grid-template-columns: 3fr 3fr 2fr 1fr;
+    }
+
+    .column-4.mixed-1lg-1lg-1md-1md {
+        --ms-grid-columns: 3fr 3fr 2fr 2fr;
+        --grid-template-columns: 3fr 3fr 2fr 2fr;
+    }
+
+    .column-4.mixed-1lg-1lg-1md-1lg {
+        --ms-grid-columns: 3fr 3fr 2fr 3fr;
+        --grid-template-columns: 3fr 3fr 2fr 3fr;
+    }
+
+    .column-4.mixed-1lg-1lg-1lg-1sm {
+        --ms-grid-columns: 3fr 3fr 1fr 1fr;
+        --grid-template-columns: 3fr 3fr 1fr 1fr;
+    }
+
+    .column-4.mixed-1lg-1lg-1lg-1md {
+        --ms-grid-columns: 3fr 3fr 3fr 2fr;
+        --grid-template-columns: 3fr 3fr 3fr 2fr;
+    }
+}
+
+@media all and (min-width: 1268px) {
+
+    .column-6,
+    .column-12 {
+        --ms-grid-columns: (1fr)[6];
+        --grid-template-columns: repeat(6, 1fr);
+    }
+
+    .column-7 {
+        --ms-grid-columns: (1fr)[7];
+        --grid-template-columns: repeat(7, 1fr);
+    }
+
+    .column-8 {
+        --ms-grid-columns: (1fr)[8];
+        --grid-template-columns: repeat(8, 1fr);
+    }
+
+    .column-9 {
+        --ms-grid-columns: (1fr)[9];
+        --grid-template-columns: repeat(9, 1fr);
+    }
+
+    .column-10 {
+        --ms-grid-columns: (1fr)[10];
+        --grid-template-columns: repeat(10, 1fr);
+    }
+
+    .column-11 {
+        --ms-grid-columns: (1fr)[11];
+        --grid-template-columns: repeat(11, 1fr);
+    }
+}
+
+@media all and (min-width: 1366px) {
+    
+    .column-12 {
+        --ms-grid-columns: (1fr)[12];
+        --grid-template-columns: repeat(12, 1fr);
+    }
+}

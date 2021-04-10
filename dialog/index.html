@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs</title>
+    <style>
+        /* Dialog is hidden until it matches an anchor target */
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            transition: opacity 250ms;
+            visibility: hidden;
+            opacity: 0;
+            /* Dialog fades in when it matches an anchor target */
+        }
+
+        .overlay:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .dialog-body {
+            position: relative;
+            margin: 50px auto;
+            width: 300px;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            /*To make the content body scrollable 
+  once the content exceeds a certain height.*/
+        }
+
+        .dialog-body h2 {
+            margin-top: 0;
+            font-family: sans-serif;
+            color: #333;
+        }
+
+        .dialog-body .content {
+            max-height: 400px;
+            overflow: auto;
+        }
+
+        .dialog-body .close {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 20px;
+            right: 20px;
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .dialog-body .close:hover,
+        .dialog-body .close:focus {
+            color: #772222;
+        }
+
+        /* Additional styling */
+        body {
+            background-color: blanchedalmond;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: indianred;
+            font-family: "Berkshire Swash", cursive;
+            text-align: center;
+        }
+
+        .button {
+            border: none;
+            background-color: #333333;
+            color: #fff;
+            border-radius: 3px;
+            padding: 16px;
+            font-size: 1rem;
+            font-family: sans-serif;
+            text-decoration: none;
+        }
+
+        .button:hover,
+        .button:focus {
+            background-color: #772222;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS-Only Modal/Dialog</h1>
+    <a class="button" href="#dialog">Click To Open Modal</a>
+
+    <div id="dialog" class="overlay" role="dialog">
+        <div class="dialog-body">
+            <h2>Heading</h2>
+            <a class="close" href="#" aria-label="Close dialog">&times;</a>
+            <div class="content">
+                <p>Some content...</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

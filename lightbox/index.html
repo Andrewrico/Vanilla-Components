@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightbox</title>
+    <style>
+        .lightbox {
+            /* Hidden lightbox image */
+            display: none;
+            position: fixed;
+            z-index: 999;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            margin-top: 2%;
+        }
+
+        .lightbox:target {
+            /* Show the lightbox */
+            display: block;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3em;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .thumbnail {
+            max-width: 180px;
+        }
+
+        .thumbnail-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body {
+            background-color: #fbffdd;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: peru;
+            font-family: "Berkshire Swash", cursive;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS-Only Image Viewer</h1>
+
+    <section>
+        <article>
+            <p>This is some paragraph of randomness...</p>
+            <!-- thumbnail image -->
+            <div class="thumbnail-wrapper">
+                <a href="#img1" aria-label="Click to enlarge image">
+                    <img src="https://picsum.photos/id/999/300/300" class="thumbnail" alt="yummy dessert">
+                </a>
+            </div>
+        </article>
+
+        <article>
+            <p>This is some more randomness...</p>
+            <div class="thumbnail-wrapper">
+                <a href="#img2">
+                    <img src="https://picsum.photos/id/998/300/300" class="thumbnail"
+                        art="old bundle of notes with pen beside it">
+                </a>
+            </div>
+        </article>
+    </section>
+
+    <!-- lightbox image (visually hidden) -->
+    <div class="lightbox" id="img1">
+        <a href="#" class="close" aria-label="close image">&times;</a>
+        <img src="https://picsum.photos/id/999/800/400" alt="yummy dessert" loading="lazy">
+    </div>
+
+    <div class="lightbox" id="img2">
+        <a href="#" class="close" aria-label="close image">&times;</a>
+        <img src="https://picsum.photos/id/998/800/400" alt="old bundle of notes with pen beside it" loading="lazy">
+    </div>
+</body>
+
+</html>
