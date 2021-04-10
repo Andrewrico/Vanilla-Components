@@ -58,7 +58,7 @@
 
 .row { grid-column: 1 / -1; }
 
-@media all and (max-width: 1024px) {
+@media (max-width: 576px) {
 
     .column-1,
     .column-2,
@@ -76,89 +76,42 @@
         --grid-template-columns: 1fr;
     }
 
-    .column-2.first-2,
-    .column-3.first-2,
-    .column-4.first-2,
-    .column-5.first-2,
-    .column-6.first-2,
-    .column-7.first-2,
-    .column-8.first-2,
-    .column-9.first-2,
-    .column-10.first-2,
-    .column-11.first-2,
-    .column-12.first-2 {
+    :is(.column-2, .column-3, .column-4, .column-5, .column-6, .column-7, 
+        .column-8, .column-9, .column-10, .column-11, .column-12).first-2 {
         --ms-grid-columns: (1fr)[2];
         --grid-template-columns: repeat(2, 1fr);
     }
 
-    .column-2.first-3,
-    .column-3.first-3,
-    .column-4.first-3,
-    .column-5.first-3,
-    .column-6.first-3,
-    .column-7.first-3,
-    .column-8.first-3,
-    .column-9.first-3,
-    .column-10.first-3,
-    .column-11.first-3,
-    .column-12.first-3 {
-        --ms-grid-columns: (1fr)[3];
-        --grid-template-columns: repeat(3, 1fr);
+    :is(.column-2, .column-3, .column-4, .column-5, .column-6, .column-7, 
+        .column-8, .column-9, .column-10, .column-11, .column-12).first-3 {
+            --ms-grid-columns: (1fr)[3];
+            --grid-template-columns: repeat(3, 1fr);
     }
 
-    .column-2.first-4,
-    .column-3.first-4,
-    .column-4.first-4,
-    .column-5.first-4,
-    .column-6.first-4,
-    .column-7.first-4,
-    .column-8.first-4,
-    .column-9.first-4,
-    .column-10.first-4,
-    .column-11.first-4,
-    .column-12.first-4 {
+    :is(.column-2, .column-3, .column-4, .column-5, .column-6, .column-7, 
+        .column-8, .column-9, .column-10, .column-11, .column-12).first-4 {
         --ms-grid-columns: (1fr)[4];
         --grid-template-columns: repeat(4, 1fr);
     }
 
-    .column-2.first-2 > :is(.col, div):last-child ,
-    .column-2.first-3 > :is(.col, div):last-child ,
-    .column-2.first-4 > :is(.col, div):last-child ,
-    .column-3.first-2 > :is(.col, div):last-child ,
-    .column-3.first-3 > :is(.col, div):last-child ,
-    .column-3.first-4 > :is(.col, div):last-child ,
-    .column-4.first-2 > :is(.col, div):last-child ,
-    .column-4.first-3 > :is(.col, div):last-child ,
-    .column-4.first-4 > :is(.col, div):last-child ,
-    .column-5.first-2 > :is(.col, div):last-child ,
-    .column-5.first-3 > :is(.col, div):last-child ,
-    .column-5.first-4 > :is(.col, div):last-child ,
-    .column-6.first-2 > :is(.col, div):last-child ,
-    .column-6.first-3 > :is(.col, div):last-child ,
-    .column-6.first-4 > :is(.col, div):last-child ,
-    .column-7.first-2 > :is(.col, div):last-child ,
-    .column-7.first-3 > :is(.col, div):last-child ,
-    .column-7.first-4 > :is(.col, div):last-child ,
-    .column-8.first-2 > :is(.col, div):last-child ,
-    .column-8.first-3 > :is(.col, div):last-child ,
-    .column-8.first-4 > :is(.col, div):last-child ,
-    .column-9.first-2 > :is(.col, div):last-child ,
-    .column-9.first-3 > :is(.col, div):last-child ,
-    .column-9.first-4 > :is(.col, div):last-child ,
-    .column-10.first-2 > :is(.col, div):last-child ,
-    .column-10.first-3 > :is(.col, div):last-child ,
-    .column-10.first-4 > :is(.col, div):last-child ,
-    .column-11.first-2 > :is(.col, div):last-child ,
-    .column-11.first-3 > :is(.col, div):last-child ,
-    .column-11.first-4 > :is(.col, div):last-child ,
-    .column-12.first-2 > :is(.col, div):last-child ,
-    .column-12.first-3 > :is(.col, div):last-child ,
-    .column-12.first-4 > :is(.col, div):last-child {
+    :is( .column-2.first-2, .column-2.first-3, .column-2.first-4, 
+        .column-3.first-2, .column-3.first-3, .column-3.first-4,
+        .column-4.first-2, .column-4.first-3, .column-4.first-4,
+        .column-5.first-2, .column-5.first-3, .column-5.first-4,
+        .column-6.first-2, .column-6.first-3, .column-6.first-4,
+        .column-7.first-2, .column-7.first-3, .column-7.first-4,
+        .column-8.first-2, .column-8.first-3, .column-8.first-4,
+        .column-9.first-2, .column-9.first-3, .column-9.first-4,
+        .column-10.first-2, .column-10.first-3, .column-10.first-4,  
+        .column-11.first-2, .column-11.first-3, .column-11.first-4,  
+        .column-12.first-2, .column-12.first-3, .column-12.first-4 ) 
+    > :is(.col, div):last-child {
         grid-column: 1 / -1;
     }
+
 }
 
-@media all and (min-width: 768px) {
+@media (min-width: 576px) {
 
     .column-2,
     .column-5,
@@ -172,12 +125,6 @@
         --ms-grid-columns: (1fr)[2];
         --grid-template-columns: repeat(2, 1fr);
     }
-
-    /*  # grid with 3 columns, last column will roll over the next line.
-    .column-3 {
-        --ms-grid-columns: (1fr)[3];
-        --grid-template-columns: repeat(3, 1fr);
-    } */
 
     .column-2.columns-small-medium,
     .column-2.columns-small-large,
@@ -268,7 +215,7 @@
     }
 }
 
-@media all and (min-width: 1024px) {
+@media (min-width: 768px) {
 
     .column-3,
     .column-6,
@@ -831,7 +778,7 @@
     }
 }
 
-@media all and (min-width: 1268px) {
+@media (min-width: 1024px) {
 
     .column-6,
     .column-12 {
@@ -865,7 +812,7 @@
     }
 }
 
-@media all and (min-width: 1366px) {
+@media (min-width: 1268px) {
     
     .column-12 {
         --ms-grid-columns: (1fr)[12];
