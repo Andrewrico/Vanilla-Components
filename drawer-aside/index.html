@@ -22,7 +22,10 @@
 
     <div class="navbar" role="navigation" aria-label="Main Navigation">
         <nav class="navbar__nav" aria-labelledby="navbar__nav-label">
-            <span hidden id="navbar__nav-label"> Navigation | Brand</span>
+
+            <span hidden id="navbar__nav-label"> 
+                Navigation | Brand 
+            </span>
 
             <ul class="navbar__menu" role="menu">
 
@@ -30,33 +33,43 @@
                     <button type="button" 
                         id="hamburger" 
                         aria-haspopup="menu" 
-                        aria-expanded="false"
-                        aria-pressed="false">
+                        aria-expanded="false">
                         <label for="drawer__menu" class="drawer__toggle" aria-controls="drawer__menu-o">
                             <i  class="fa fa-bars" aria-hidden="true"></i>
-                            <span hidden id="drawer__hamburger-label">Menu</span>
+                            <span hidden > Menu </span>
                         </label>
                     </button>
                 </li>
 
                 <li role="menuitem" class="navbar__item">
-                    <button type="button" id="doggies">
+                    <button type="button"
+                        id="item1"
+                        aria-haspopup="menu" 
+                        aria-expanded="false">
                         <label  for="drawer__menu" class="drawer__toggle" aria-controls="drawer__menu-o">
-                            <span id="drawer__menu-label-1">Catties</span>
+                            <span > Catties </span>
                         </label>
                     </button>
                 </li>
+
                 <li role="menuitem" class="navbar__item">
-                    <button type="button" id="doggies">
-                        <label  for="drawer__menu" class="drawer__toggle" aria-controls="drawer__menu-o">
-                            <span id="drawer__menu-label-2">Doggies</span>
+                    <button type="button"
+                        id="item2"
+                        aria-haspopup="menu" 
+                        aria-expanded="false">
+                        <label for="drawer__menu" class="drawer__toggle" aria-controls="drawer__menu-o">
+                            <span> Doggies </span>
                         </label>
                     </button>
                 </li>
+
                 <li role="menuitem" class="navbar__item">
-                    <button type="button" id="doggies">
+                    <button type="button"
+                        id="item3"
+                        aria-haspopup="menu" 
+                        aria-expanded="false">
                         <label  for="drawer__menu" class="drawer__toggle" aria-controls="drawer__menu-o">
-                            <span id="drawer__menu-label-3">Froggies</span>
+                            <span> Froggies </span>
                         </label>
                     </button>
                 </li>
@@ -75,18 +88,26 @@
                         <i class="fa fa-question" aria-hidden="true"></i>
                     </a>
                 </li>
+
                 <li role="menuitem" class="navbar__item">
-                    <button type="button" id="search">
-                        <label  for="drawer__search" class="drawer__toggle" aria-controls="drawer__search-o">
+                    <button type="button" 
+                        id="search"
+                        aria-haspopup="true" 
+                        aria-expanded="false">
+                        <label for="drawer__search" class="drawer__toggle" aria-controls="drawer__search-o">
                             <span hidden id="drawer__search-label">Site Search bar</span>
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </label>
                     </button>
                 </li>
+
                 <li role="menuitem" class="navbar__item">
-                    <button type="button" id="search">
+                    <button type="button"
+                        id="cart"
+                        aria-haspopup="menu" 
+                        aria-expanded="false">
                         <label  for="drawer__cart" class="drawer__toggle" aria-controls="drawer__cart-o">
-                            <span hidden id="drawer__search-label">Site Cart</span>
+                            <span hidden id="drawer__cart-label">Site Cart</span>
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         </label>
                     </button>
@@ -95,16 +116,25 @@
         </nav>
     </div>
 
-
-
-
-    <input type="checkbox" id="drawer__menu" hidden>
+    <!-- <input type="checkbox" id="drawer__menu" hidden>
     <label class="backdrop" id="drawer__menu-mask" for="drawer__menu"></label>
-    <aside id="drawer__menu-o" class="drawer left" aria-labelledby="drawer__menu-label">
+    <aside id="drawer__menu-o" class="drawer left " aria-labelledby="drawer__menu-label">
         <div class="drawer__header">
-            <span hidden id="drawer__menu-label">Site Menu</span>
+            <span hidden id="drawer__customer-label">Main Menu</span>
+
+            <label  for="drawer__tab_1" class="drawer__toggle" aria-controls="drawer__menu-o">
+                <span > Catties </span>
+            </label>
+            <label  for="drawer__tab_1" class="drawer__toggle" aria-controls="drawer__menu-o">
+                <span > Catties </span>
+            </label>
+            <label  for="drawer__tab_3" class="drawer__toggle" aria-controls="drawer__menu-o">
+                <span > Catties </span>
+            </label>
+
+
             <label 
-                for="drawer__menu" 
+                for="drawer__customer" 
                 class="drawer__toggle"  
                 role="button"
                 aria-pressed="false" 
@@ -112,19 +142,48 @@
                 <i class="fa fa-times" aria-hidden="true"></i>
             </label>
         </div>
-        <div class="drawer__content">
-            <nav>
-                <ul>
-                    <li>
-                        <a href="/"></a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </aside>
+        <div class="drawer__content"></div>    
+    </aside> -->
 
+    <input type="checkbox" id="drawer__menu" hidden>
+    <label class="backdrop" id="drawer__menu-mask" for="drawer__menu"></label>
+    <aside id="drawer__menu-o" class="drawer left " aria-labelledby="drawer__menu-label">
+        <div class="tabset">
+            <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
+            <label for="tab1" class="menuitem1">Catties</label>
+            <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
+            <label for="tab2" class="menuitem2">Doggies</label>
+            <input type="radio" name="tabset" id="tab3" aria-controls="dunkles">
+            <label for="tab3" class="menuitem3">Froggies</label>
 
-
+            <span hidden id="drawer__menu-label">Site Menu</span>
+            <label 
+                for="drawer__menu" 
+                class="drawer__toggle"  
+                role="button"
+                aria-pressed="false" 
+                tabindex="0"
+            ><i class="fa fa-times" aria-hidden="true"></i>
+            </label>
+            <div class="tab-panels">
+              <section id="marzen" class="tab-panel">
+                <h2>6A. Märzen</h2>
+                <p><strong>Overall Impression:</strong> An elegant, malty German amber lager with a clean, rich, toasty and bready malt flavor, restrained bitterness, and a dry finish that encourages another drink. The overall malt impression is soft, elegant, and complex, with a rich aftertaste that is never cloying or heavy.</p>
+                <p><strong>History:</strong> As the name suggests, brewed as a stronger “March beer” in March and lagered in cold caves over the summer. Modern versions trace back to the lager developed by Spaten in 1841, contemporaneous to the development of Vienna lager. However, the Märzen name is much older than 1841; the early ones were dark brown, and in Austria the name implied a strength band (14 °P) rather than a style. The German amber lager version (in the Viennese style of the time) was first served at Oktoberfest in 1872, a tradition that lasted until 1990 when the golden Festbier was adopted as the standard festival beer.</p>
+            </section>
+              <section id="rauchbier" class="tab-panel">
+                <h2>6B. Rauchbier</h2>
+                <p><strong>Overall Impression:</strong>  An elegant, malty German amber lager with a balanced, complementary beechwood smoke character. Toasty-rich malt in aroma and flavor, restrained bitterness, low to high smoke flavor, clean fermentation profile, and an attenuated finish are characteristic.</p>
+                <p><strong>History:</strong> A historical specialty of the city of Bamberg, in the Franconian region of Bavaria in Germany. Beechwood-smoked malt is used to make a Märzen-style amber lager. The smoke character of the malt varies by maltster; some breweries produce their own smoked malt (rauchmalz).</p>
+              </section>
+              <section id="dunkles" class="tab-panel">
+                <h2>6C. Dunkles Bock</h2>
+                <p><strong>Overall Impression:</strong> A dark, strong, malty German lager beer that emphasizes the malty-rich and somewhat toasty qualities of continental malts without being sweet in the finish.</p>
+                <p><strong>History:</strong> Originated in the Northern German city of Einbeck, which was a brewing center and popular exporter in the days of the Hanseatic League (14th to 17th century). Recreated in Munich starting in the 17th century. The name “bock” is based on a corruption of the name “Einbeck” in the Bavarian dialect, and was thus only used after the beer came to Munich. “Bock” also means “Ram” in German, and is often used in logos and advertisements.</p>
+              </section>
+            </div>
+        </div>    
+    </aside> 
 
     <input type="checkbox" id="drawer__cart" hidden>
     <label class="backdrop" id="drawer__cart-mask" for="drawer__cart"></label>
