@@ -2,15 +2,27 @@ body {
     margin: 0;
 }
 
+[type="button"] {
+    background: transparent;
+    border:0;
+    padding: 0.6rem 0;
+}
+
+.navbar a {
+    color: aliceblue;
+    text-decoration: none;
+
+}
+
+.navbar label {
+    color: aliceblue;
+    cursor: pointer;
+    padding: 0.6rem;
+}
+
 .navbar {
     width: 100%;
     background: #000000;
-}
-
-.navbar :is(a, label) {
-    cursor: pointer;
-    color: aliceblue;
-    text-decoration: none;
 }
 
 .navbar__menu {
@@ -24,9 +36,12 @@ body {
     grid-template-columns: auto auto 1fr auto auto;
 }
 
-.navbar__item:nth-child(2),
-.navbar__item:nth-child(3),
-.navbar__item:nth-child(4) {
+.navbar__item {
+    display: grid;
+    place-items: center;
+}
+
+.navbar__item:is(:nth-child(2),:nth-child(3),:nth-child(4)) {
     display: none;
     visibility: collapse;
 }
@@ -90,9 +105,7 @@ body {
         order: 7
     }
 
-    .navbar__item:nth-child(2),
-    .navbar__item:nth-child(3),
-    .navbar__item:nth-child(4) {
+    .navbar__item:is(:nth-child(2),:nth-child(3),:nth-child(4)) {
         display: block;
         visibility: visible;
     }
@@ -108,8 +121,8 @@ body {
     height: 100%;
     min-height: 100vh;
     z-index: 5000;
-    border: 1px solid #bfc5ff;
-    background:  #dcdfff;
+    border: 1px solid #a9a9a9;
+    background:  #f2f2f2;
 }
 
 .drawer.left {
@@ -129,19 +142,21 @@ body {
     transform: translate(-50%, -50%);
     transition: all 0.6s ease-out;
     height: 10vh;
+    height: 10vh;
     min-width: 80vw;
     margin: auto;
     z-index: 5000;
-    border: 1px solid #bfc5ff;
-    background: #dcdfff;
+    border: 1px solid #a9a9a9;
+    background: #f2f2f2;
 }
+
 
 #drawer__search:checked~#drawer__search-o {
     position: absolute;
     top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 0.6s ease-out;
+    transition: top 0.6s ease;
 }
 
 #drawer__menu:checked~#drawer__menu-o {
@@ -154,15 +169,6 @@ body {
     transition: right 0.4s ease;
 }
 
-#drawer__search:checked~#drawer__search-mask,
-#drawer__menu:checked~#drawer__menu-mask,
-#drawer__cart:checked~#drawer__cart-mask,
-#drawer__customer:checked~#drawer__customer-mask {
-    visibility: visible;
-    opacity: 0.8;
-    transition: visibility 0s linear 300ms, opacity 600ms;
-    backface-visibility: hidden;
-}
 
 .drawer__header {
     display: flex;
@@ -172,18 +178,27 @@ body {
     max-width: 95%;
     margin: auto;
     padding:1rem 0;
+    border-bottom: 1px solid rgba(138, 138, 138, 0.619);
 }
 
 .drawer__header .drawer__toggle {
-    padding: 0.5rem;
-    border: 1px solid #8c97ff;
-    background: #bfc5ff;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    border: 1px solid #c1c1c1;
+    background: #f2f2f2;
     cursor: pointer;
+    border-radius: 50%;
+}
+
+.drawer.left > .drawer__header > .drawer__toggle {
+    margin-left: auto;
 }
 
 .backdrop {
     position: absolute;
-    top: 0;
+    top: 0%;
+    left: 0%;
     background: black;
     max-width: 100%;
     width: 100%;
@@ -192,6 +207,16 @@ body {
     cursor: pointer;
     visibility: hidden;
     opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 600ms;
+    backface-visibility: hidden;
+}
+
+#drawer__search:checked~#drawer__search-mask,
+#drawer__menu:checked~#drawer__menu-mask,
+#drawer__cart:checked~#drawer__cart-mask,
+#drawer__customer:checked~#drawer__customer-mask {
+    visibility: visible;
+    opacity: 0.8;
     transition: visibility 0s linear 300ms, opacity 600ms;
     backface-visibility: hidden;
 }
