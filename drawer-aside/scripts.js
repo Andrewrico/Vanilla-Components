@@ -1,117 +1,148 @@
+var currentValue = 0;
+
+function handleClick(myRadio) {
+    alert('Old value: ' + currentValue);
+    alert('New value: ' + myRadio.value);
+    currentValue = myRadio.value;
+}
+
 document.body.classList.toggle('js-enable');
 
-// ContentLoaded
 document.addEventListener("DOMContentLoaded", function () {
 
-    const showMenuTrigger = document.querySelectorAll('input[type=checkbox][id=drawer__menu]');
-    const hamburger = document.getElementById('hamburger');
-    const item1 = document.getElementById('item1');
-    const item2 = document.getElementById('item2');
-    const item3 = document.getElementById('item3');
-    const tab1 = document.getElementById('tab1');
-    const tab2 = document.getElementById('tab2');
-    const tab3 = document.getElementById('tab3');
-    
-    item1.onclick = function () {
-        showMenuTrigger.forEach(menu => 
-        menu.addEventListener('change', function (event) {
-            if (!event.target.checked || !item1.getAttribute("aria-expanded") == "true") {
-                item1.setAttribute("aria-expanded", "false");
-            } else  {
-                item1.setAttribute("aria-expanded", "true");
-            }
-        })
-    )};
+    const getMenu = document.querySelectorAll('input[type=checkbox][id=drawer__menu]');
+    const getCart = document.querySelectorAll('input[type=checkbox][id=drawer__cart]');
+    const getSearch = document.querySelectorAll('input[type=checkbox][id=drawer__search]');
+    const toggleMenu = document.getElementById('hamburger');
+    const toggleItem1 = document.getElementById('item1');
+    const toggleItem2 = document.getElementById('item2');
+    const toggleItem3 = document.getElementById('item3');
 
-    item2.onclick = function () {
-        showMenuTrigger.forEach(menu => 
-        menu.addEventListener('change', function (event) {
-            if (!event.target.checked || !item2.getAttribute("aria-expanded") == "true") {
-                item2.setAttribute("aria-expanded", "false");
-            } else  {
-                item2.setAttribute("aria-expanded", "true");
-            }
-        })
-    )};
+    const toggleCart = document.getElementById("cart");
+    const toggleSearch = document.getElementById("search");
 
+    const tab1 = document.getElementById('Catties');
+    const tab2 = document.getElementById('Doggies');
+    const tab3 = document.getElementById('Froggies');
 
-    item3.onclick = function () {
-        showMenuTrigger.forEach(menu => 
-        menu.addEventListener('change', function (event) {
-            if (!event.target.checked || !item3.getAttribute("aria-expanded") == "true") {
-                item3.setAttribute("aria-expanded", "false");
-            } else  {
-                item3.setAttribute("aria-expanded", "true");
-            }
-        })
-    )};
+    const tabcontent1 = document.getElementById('menu1_conent');
+    const tabcontent2 = document.getElementById('menu2_conent');
+    const tabcontent3 = document.getElementById('menu3_conent');
 
-    hamburger.onclick = function () {
-        showMenuTrigger.forEach(menu => 
-        menu.addEventListener('change', function (event) {
-            if (!event.target.checked || !hamburger.getAttribute("aria-expanded") == "true") {
-                hamburger.setAttribute("aria-expanded", "false");
-            } else  {
-                hamburger.setAttribute("aria-expanded", "true");
-            }
-        })
-    )};
+    isFocus = false
 
-
-    hamburger.forEach(item => 
-        hamburger.onclick = function () {
-            showMenuTrigger.forEach(menu => 
-            menu.addEventListener('change', function (event) {
-                if (!event.target.checked || !hamburger.getAttribute("aria-expanded") == "true") {
-                    hamburger.setAttribute("aria-expanded", "false");
-                } else  {
-                    hamburger.setAttribute("aria-expanded", "true");
-                }
-            })
-        );
+    toggleItem1.addEventListener('click', function () {
+        tab1.focus();
+        tab1.checked;
+        isFocus = true
+        if (isFocus === true) {
+            tabcontent1.style.display = "block";
+        } else{
+            isFocus = false
+            tabcontent1.style.display = "none";
+            tabcontent2.style.display = "none";
+            tabcontent3.style.display = "none";
+        }
     });
 
+    toggleItem2.addEventListener('click', function () {
+        tab2.focus();
+        tab2.checked;
+        isFocus = true
+        if (isFocus === true) {
+            tabcontent2.style.display = "block";
+        } else {
+            isFocus = false
+            tabcontent1.style.display = "none";
+            tabcontent2.style.display = "none";
+            tabcontent3.style.display = "none";
+        }
+    });
 
-    const getCart = document.querySelectorAll('input[type=checkbox][id=drawer__cart]');
-    const toggleCart = document.getElementById("cart");
-    toggleCart.onclick = function () {
-        for (let cart of getCart) {
-            cart.addEventListener('change', function (event) {
-                if (event.target.checked || toggleCart.getAttribute("aria-expanded") == "false") {
-                    toggleCart.setAttribute("aria-expanded", "true");
-                } else  {
-                    toggleCart.setAttribute("aria-expanded", "false");
+    toggleItem3.addEventListener('click', function () {
+        tab3.focus();
+        tab3.checked;
+        isFocus = true
+        if (isFocus === true) {
+            tabcontent3.style.display = "block";
+        } else {
+            isFocus = false
+            tabcontent1.style.display = "none";
+            tabcontent2.style.display = "none";
+            tabcontent3.style.display = "none";
+        }
+    });
+
+    toggleMenu.addEventListener('click', function () {
+        getMenu.forEach(item => {
+            item.addEventListener('change', function (event) {
+                if (!event.target.checked || !toggleMenu.getAttribute("aria-expanded") == "true") {
+                    toggleMenu.setAttribute("aria-expanded", "false");
+                } else {
+                    toggleMenu.setAttribute("aria-expanded", "true");
                 }
             });
-        };
-    };
+        });
+    });
 
-    // const getCustomer = document.querySelectorAll('input[type=checkbox][id=drawer__customer]');
-    // const toggleCustomer = document.getElementById("customer");
-    // toggleCustomer.onclick = function () {
-    //     for (let customer of getCustomer) {
-    //         customer.addEventListener('change', function (event) {
-    //             if (event.target.checked || customer.getAttribute("aria-expanded") == "false") {
-    //                 customer.setAttribute("aria-expanded", "true");
-    //             } else  {
-    //                 customer.setAttribute("aria-expanded", "false");
-    //             }
-    //         });
-    //     };
-    // };
-
-    const getSearch = document.querySelectorAll('input[type=checkbox][id=drawer__search]');
-    const toggleSearch = document.getElementById("search");
-    toggleSearch.onclick = function () {
-        for (let searches of getSearch) {
-            searches.addEventListener('change', function (event) {
-                if (event.target.checked || toggleSearch.getAttribute("aria-expanded") == "false") {
-                    toggleSearch.setAttribute("aria-expanded", "true");
-                } else  {
-                    toggleSearch.setAttribute("aria-expanded", "false");
+    toggleItem1.addEventListener('click', function () {
+        getMenu.forEach(item => {
+            item.addEventListener('change', function (event) {
+                if (!event.target.checked || !toggleItem1.getAttribute("aria-expanded") == "true") {
+                    toggleItem1.setAttribute("aria-expanded", "false");
+                } else {
+                    toggleItem1.setAttribute("aria-expanded", "true");
                 }
-        })
-    }} 
+            });
+        });
+    });
 
+    toggleItem2.addEventListener('click', function () {
+        getMenu.forEach(item => {
+            item.addEventListener('change', function (event) {
+                if (!event.target.checked || !toggleItem2.getAttribute("aria-expanded") == "true") {
+                    toggleItem2.setAttribute("aria-expanded", "false");
+                } else {
+                    toggleItem2.setAttribute("aria-expanded", "true");
+                }
+            });
+        });
+    });
 
-})
+    toggleItem3.addEventListener('click', function () {
+        getMenu.forEach(item => {
+            item.addEventListener('change', function (event) {
+                if (!event.target.checked || !toggleItem3.getAttribute("aria-expanded") == "true") {
+                    toggleItem3.setAttribute("aria-expanded", "false");
+                } else {
+                    toggleItem3.setAttribute("aria-expanded", "true");
+                }
+            });
+        });
+    });
+
+    toggleCart.addEventListener('click', function () {
+        getCart.forEach(cart => {
+            cart.addEventListener('change', function (event) {
+                if (!event.target.checked || !toggleCart.getAttribute("aria-expanded") == "true") {
+                    toggleCart.setAttribute("aria-expanded", "false");
+                } else {
+                    toggleCart.setAttribute("aria-expanded", "true");
+                }
+            });
+        });
+    });
+
+    toggleSearch.addEventListener('click', function () {
+        getSearch.forEach(searches => {
+            searches.addEventListener('change', function (event) {
+                if (!event.target.checked || !toggleSearch.getAttribute("aria-expanded") == "true") {
+                    toggleSearch.setAttribute("aria-expanded", "false");
+                } else {
+                    toggleSearch.setAttribute("aria-expanded", "true");
+                }
+            });
+        });
+    });
+
+});

@@ -243,12 +243,9 @@ body {
     display: none;
   }
   
-  .tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
-  .tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
-  .tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
-  .tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
-  .tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
-  .tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+  .tabset > input#Catties:checked ~ .tab-panels > #menu1_conent,
+  .tabset > input#Doggies:checked ~ .tab-panels > #menu2_conent,
+  .tabset > input#Froggies:checked ~ .tab-panels > #menu3_conent {
     display: block;
   }
   
@@ -288,7 +285,7 @@ body {
     background: #06c;
   }
   
-  .tabset > input:checked + label {
+.tabset > input:checked + label {
     border-color: #ccc;
     border-bottom: 1px solid #fff;
     margin-bottom: -1px;
