@@ -24,6 +24,33 @@
     </nav>
     
 
+    <script>
+
+var navButton = document.querySelectorAll('nav button');
+var state = true; //try changing this to false
+state = !state; //the variable will go from true to false, or from false to true
+navButton.forEach(item => {
+  item.addEventListener('click', event => {
+    if(state) {
+        item.setAttribute('aria-expanded', 'true');
+    } else {
+        item.setAttribute('aria-expanded', 'false');
+    }
+  })
+})
+
+
+    </script>
+
+    <script>
+
+document.onkeydown = function(e) {
+  if(e.keyCode === 13) { // The Enter/Return key
+    document.activeElement.onclick(e);
+  }
+};
+    </script>
+
     <script src="accesiblemenu.js"></script>
 </body>
 </html>

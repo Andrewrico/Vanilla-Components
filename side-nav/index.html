@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>app-drawer Built-in Module Demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+  </head>  
+  <body>
+    <header id="demo-header">
+      <button onclick="drawer.toggle()">Toggle Drawer</button>
+      <h1>&lt;app-drawer&gt; Prototype</h1>
+    </header>
+    <main>
+      <p>
+        This is an early prototype of an <code>&lt;app-drawer&gt;</code> built-in module.<br>
+        Try pulling open the drawer open as if this was a native mobile app, or tap the hamburger icon.
+      </p>
+      <p class="status">
+        The drawer is currently <code id="state">closed</code>.
+      </p>
+      <nav>
+        <a href="https://glitch.com/~app-drawer" target="_blank">Edit on Glitch! ↗️</a><br>
+        <a href="https://github.com/GoogleChromeLabs/app-drawer" target="_blank">Explainer and details ↗️</a><br>
+      </nav>
+    </main>
+
+    <app-drawer id="drawer" autoclose ontoggle="state.textContent=event.open?'open':'closed'">
+      <header><h2>Hello</h2></header>
+      <nav>
+        <a href="/#">Home</a>
+        <a href="/#products">Products</a>
+        <a href="/#about">About Us</a>
+        <a href="/#who-we-are">Who We Are</a>
+        <a href="/#quality">Quality</a>
+        <a href="/#contact">Contact Us</a>
+      </nav>
+    </app-drawer>
+    
+    <!-- Set up our Import Map -->
+    <script type="importmap">
+    { "imports": {
+      "/app-drawer-polyfill.mjs": [
+        "std:app-drawer",
+        "/app-drawer-polyfill.mjs"
+      ]
+    } }
+    </script>
+
+    <script type="module">
+      // import <app-drawer>, falling back to the polyfill:
+      import '/app-drawer-polyfill.mjs';
+
+      // Example of using the drawer's imperative API:
+      drawer.addEventListener('close', () => {
+        console.log('closed');
+      });
+
+      // [demo] emulate Single Page App -style routing:
+      // addEventListener('click', e => {
+      //   const a = e.target.closest('a');
+      //   if (a && a.origin === location.origin && /^(self|top|)$/.test(a.target || '')) {
+      //     e.preventDefault();
+      //     history.pushState(null, a.title, a.href);
+      //   }
+      // });
+    </script>
+  </body>
+</html>
+
+
+    <script src="scripts.js"></script>
+</body>
+</html>
