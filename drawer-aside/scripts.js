@@ -1,77 +1,26 @@
-var currentValue = 0;
 
-function handleClick(myRadio) {
-    alert('Old value: ' + currentValue);
-    alert('New value: ' + myRadio.value);
-    currentValue = myRadio.value;
-}
 
 document.body.classList.toggle('js-enable');
 
 document.addEventListener("DOMContentLoaded", function () {
-
     const getMenu = document.querySelectorAll('input[type=checkbox][id=drawer__menu]');
     const getCart = document.querySelectorAll('input[type=checkbox][id=drawer__cart]');
     const getSearch = document.querySelectorAll('input[type=checkbox][id=drawer__search]');
     const toggleMenu = document.getElementById('hamburger');
-    const toggleItem1 = document.getElementById('item1');
-    const toggleItem2 = document.getElementById('item2');
-    const toggleItem3 = document.getElementById('item3');
-
-    const toggleCart = document.getElementById("cart");
-    const toggleSearch = document.getElementById("search");
+    const toggleItem1 = document.getElementById('menuitem1');
+    const toggleItem2 = document.getElementById('menuitem2');
+    const toggleItem3 = document.getElementById('menuitem3');
+    const toggleBrand = document.getElementById("menuitem4");
+    const toggleSupport = document.getElementById("menuitem5");
+    const toggleSearch = document.getElementById("menuitem6");
+    const toggleCart = document.getElementById("menuitem7");
 
     const tab1 = document.getElementById('Catties');
     const tab2 = document.getElementById('Doggies');
     const tab3 = document.getElementById('Froggies');
-
     const tabcontent1 = document.getElementById('menu1_conent');
     const tabcontent2 = document.getElementById('menu2_conent');
     const tabcontent3 = document.getElementById('menu3_conent');
-
-    isFocus = false
-
-    toggleItem1.addEventListener('click', function () {
-        tab1.focus();
-        tab1.checked;
-        isFocus = true
-        if (isFocus === true) {
-            tabcontent1.style.display = "block";
-        } else{
-            isFocus = false
-            tabcontent1.style.display = "none";
-            tabcontent2.style.display = "none";
-            tabcontent3.style.display = "none";
-        }
-    });
-
-    toggleItem2.addEventListener('click', function () {
-        tab2.focus();
-        tab2.checked;
-        isFocus = true
-        if (isFocus === true) {
-            tabcontent2.style.display = "block";
-        } else {
-            isFocus = false
-            tabcontent1.style.display = "none";
-            tabcontent2.style.display = "none";
-            tabcontent3.style.display = "none";
-        }
-    });
-
-    toggleItem3.addEventListener('click', function () {
-        tab3.focus();
-        tab3.checked;
-        isFocus = true
-        if (isFocus === true) {
-            tabcontent3.style.display = "block";
-        } else {
-            isFocus = false
-            tabcontent1.style.display = "none";
-            tabcontent2.style.display = "none";
-            tabcontent3.style.display = "none";
-        }
-    });
 
     toggleMenu.addEventListener('click', function () {
         getMenu.forEach(item => {

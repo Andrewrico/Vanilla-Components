@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture Tag</title>
+</head>
+<body>
+    
+
+    <picture>
+        <img src="images/all-image-small.jpg" alt="What is that image about?">
+
+        <source media="min-with(768px)"
+                srcset="images/all-image-small.jpg, 375w,
+                        images/all-image-small@2x.webp, 667w,
+                        images/all-image-small@3x.jpg, 768w,">
+
+        <source media="min-with(1024px)"
+                srcset="images/all-image-medium.jpg, 768w,
+                        images/all-image-medium@2x.jpg, 1024w,
+                        images/all-image-medium@3x.jpg, 1268w,">
+
+        <source media="min-with(1268px)"
+                srcset="images/all-image-large.jpg,
+                        images/all-image-large@2x.jpg,
+                        images/all-image-large@3x.jpg,">
+    </picture>
+
+</body>
+</html>
