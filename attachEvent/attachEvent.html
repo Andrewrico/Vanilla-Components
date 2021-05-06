@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+  
+</head>
+<body>
+    Click on the red button when the 'click' event has a listener and when it does not.<br />
+    <button onclick="AddEventHandler ();">Add a 'click' event listener to the red button</button>
+    <button onclick="RemoveEventHandler ();">Remove the event listener</button>
+    <br /><br />
+    <button id="redButton" style="background-color:red">Red button</button>
+</body>
+<script type="text/javascript">
+    function OnRedClick () {
+        alert ("A click event has occurred on the red button.");
+    }
+
+    function AddEventHandler () {
+        var redButton = document.getElementById ("redButton");
+        if (redButton.addEventListener) {   // all browsers except IE before version 9
+            redButton.addEventListener ("click", OnRedClick, false);
+        } 
+        else {
+            if (redButton.attachEvent) {    // IE before version 9
+                redButton.attachEvent ('onclick', OnRedClick);
+            }
+        }
+    }
+
+    function RemoveEventHandler () {
+        var redButton = document.getElementById ("redButton");
+        if (redButton.removeEventListener) {    // all browsers except IE before version 9
+            redButton.removeEventListener ("click", OnRedClick, false);
+        }
+        else {
+            if (redButton.detachEvent) {        // IE before version 9
+                redButton.detachEvent ('onclick', OnRedClick);
+            }
+        }
+    }
+</script>
+</html>
