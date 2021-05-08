@@ -1,0 +1,50 @@
+ body {
+     margin: 0;
+ }
+
+ ul {
+     margin: 0;
+     padding: 0;
+ }
+
+ .flex {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    gap: 1rem;
+}
+
+.flex .item {
+    border: 1px solid red;
+    width: 300px;
+    height: 300px;
+}
+
+.flex .item {
+    background: red;
+}
+
+
+.flex .item + .item {
+    background: orange;
+}
+
+.flex .item + .item + .item {
+    background: blue;
+}
+
+body .flex {
+    justify-content: flex-end;
+}
+
+body .flex + .flex {
+    justify-content: flex-start;
+}
+
+body .flex + .flex + .flex {
+    justify-content: center;
+}
+
+body .flex + .flex + .flex > h2 {
+    color: blue;
+}
