@@ -1,50 +1,43 @@
- body {
-     margin: 0;
- }
+:is(input, ul) {
+    display: none
+}
 
- ul {
-     margin: 0;
-     padding: 0;
- }
-
- .flex {
-    display: flex;
+.drawer__menu {
+    position: fixed;
+    top: 0;
+    left: -2000px;
+    height: 100vh;
     width: 100%;
-    max-width: 100%;
-    gap: 1rem;
+    max-width: 80%;
+    background: #000000;
+    z-index: 50;
+    transition: left ease 0.3s;
 }
 
-.flex .item {
-    border: 1px solid red;
-    width: 300px;
-    height: 300px;
+.backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 49;
+    background-color: rgba(0, 0, 0, 0.31);
 }
 
-.flex .item {
-    background: red;
+.drawer__menu input~ul {
+    position: absolute;
+    z-index: 10;
 }
 
-
-.flex .item + .item {
-    background: orange;
+input#drawer:checked~.drawer__menu {
+    left: 0;
 }
 
-.flex .item + .item + .item {
-    background: blue;
-}
-
-body .flex {
-    justify-content: flex-end;
-}
-
-body .flex + .flex {
-    justify-content: flex-start;
-}
-
-body .flex + .flex + .flex {
-    justify-content: center;
-}
-
-body .flex + .flex + .flex > h2 {
-    color: blue;
+input:checked~ul,
+input#drawer:checked~.drawer__menu+.backdrop,
+input#drawer:checked~.drawer__menu+#toggleMenu1~#dropdownMenu1,
+input#drawer:checked~.drawer__menu+#toggleMenu2~#dropdownMenu2,
+input#drawer:checked~.drawer__menu+#toggleMenu3~#dropdownMenu3 {
+    display: block;
 }

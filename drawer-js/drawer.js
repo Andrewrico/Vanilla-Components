@@ -102,56 +102,41 @@
   
         // Click Handler
         var clickHandler = function (event) {
-  
           // Find elements
           var toggle = event.target,
             open = toggle.closest(settings.selectorTrigger),
             close = toggle.closest(settings.selectorClose);
-  
           // Open drawer when the open button is clicked
           if (open) {
             openDrawer(open);
           }
-  
           // Close drawer when the close button (or overlay area) is clicked
           if (close) {
             closeDrawer(close);
           }
-  
           // Prevent default link behavior
           if (open || close) {
             event.preventDefault();
           }
-  
         };
-  
         // Keydown Handler, handle Escape button
         var keydownHandler = function (event) {
-  
           if (event.key === 'Escape' || event.keyCode === 27) {
-  
             // Find all possible drawers
             var drawers = document.querySelectorAll(settings.selectorTarget),
               i;
-  
             // Find active drawers and close them when escape is clicked
             for (i = 0; i < drawers.length; ++i) {
               if (drawers[i].classList.contains(settings.activeClass)) {
                 closeDrawer(drawers[i]);
               }
             }
-  
           }
-  
         };
-  
-  
         //
         // Inits & Event Listeners
         //
         document.addEventListener('click', clickHandler, false);
         document.addEventListener('keydown', keydownHandler, false);
-  
       };
-  
       drawer()

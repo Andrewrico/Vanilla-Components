@@ -4,212 +4,172 @@
 <head>
     <meta charset="UTF-8">
     <title>FlexNav</title>
-    <link rel="stylesheet" href="drawer.css">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="other.css">
+
     <style>
+        body {
+            margin: 0;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
     </style>
 </head>
 
 <body>
-
-
     <div class="navbar">
         <nav class="navbar__wrappwer">
             <ul class="navbar__menu">
 
-                <li class="navbar__item navbar__toggle">
-                    <div class="navbar__item-content drew__drawer" aria-label="Drawer Menu">
-                        <label for="toggleMenu1" data-drawer-trigger aria-controls="drawer-name" aria-expanded="false"  class="toggle__button" style="display:block" tabindex="0" role="button">
-                            =
-                        </label>
-                    </div>
+                <li class="navbar__item navbar__item-toggle">
+                    <label for="drawer" 
+                    aria-controls="drawer-name" aria-expanded="false" class="menu__item toggle__button" tabindex="0" role="button"> = </label>
                 </li>
 
-                <li class="navbar__item navbar__dropdown navbar__dropdown--item">
-                    <div class="navbar__item-content" aria-label="Dropdown Menu">
-                        <label for="toggleMenu1" data-drawer-trigger aria-controls="drawer-name" aria-expanded="false"  class="toggle__button" style="display:block" tabindex="0" role="button">
-                            Toggle 1
-                        </label>
-
-
-
-                    </div>
+                <li class="navbar__item navbar__item-menu">
+                    <label for="drawer" id="toggleLabel1" class="navbar__item-self toggle__button" aria-controls="drawer-name" aria-expanded="false" role="button" tabindex="0">
+                        Toggle 1
+                    </label>
                 </li>
 
-                <li class="navbar__item navbar__dropdown navbar__dropdown--item">
-                    <div class="navbar__item-content" aria-label="Dropdown Menu">
-                        <label for="toggleMenu2" data-drawer-trigger aria-controls="drawer-name" aria-expanded="false" class="toggle__button" style="display:block" tabindex="0" role="button">
-                            Toggle 2
-                        </label>
-                    </div>
+                <li class="navbar__item navbar__item-menu">
+                    <label for="drawer" id="toggleLabel2" class="navbar__item-self toggle__button" aria-controls="drawer-name" aria-expanded="false" role="button" tabindex="0">
+                        Toggle 2
+                    </label>
                 </li>
-                <li class="navbar__item navbar__dropdown navbar__dropdown--item">
-                    <div class="navbar__item-content drew__dropdown" aria-label="Dropdown Menu">
-                        <label data-drawer-trigger aria-controls="drawer-name" aria-expanded="false" for="toggleMenu3" class="toggle__button" style="display:block" tabindex="0" role="button">
-                            Toggle 3
-                        </label>
-                    </div>
+
+                <li class="navbar__item navbar__item-menu">
+                    <label for="drawer" id="toggleLabel3" class="navbar__item-self toggle__button" aria-controls="drawer-name" aria-expanded="false" role="button" tabindex="0">
+                        Toggle 3
+                    </label>
                 </li>
                 <li class="navbar__item navbar__item-search">
-                    <a href="/Rabbits" class="navbar__item-content">search</a>
+                    <a href="/Rabbits" class="navbar__item-self">search</a>
                 </li>
                 <li class="navbar__item navbar__item-logo">
-                    <a href="/" class="navbar__item-content ">Logo</a>
+                    <a href="/" class="navbar__item-self " id="logo">
+                        andrew
+                    </a>
                 </li>
                 <li class="navbar__item navbar__item-search">
-                    <a href="/Rabbits" class="navbar__item-content">support</a>
+                    <a href="/Rabbits" class="navbar__item-self">support</a>
                 </li>
                 <li class="navbar__item navbar__item-cart">
-                    <a href="/Cocs" class="navbar__item-content">cart</a>
+                    <a href="/Cocs" class="navbar__item-self">cart</a>
                 </li>
             </ul>
         </nav>
     </div>
-    <!-- 
-    <input id="drawer" type="checkbox" name="toggle__dropdown" hidden>
-    <aside class="drawer__menu">
-        <ul class="drawer__menu-content">
-            <li class="navbar__item navbar__dropdown">
-                <div class="navbar__item-content drew__dropdown" aria-label="Dropdown Menu">
-                    <label for="dropdown-01" id="toggle__button-01" class="toggle__button" style="display:block"
-                        tabindex="0" role="button" aria-expanded="false" aria-controls="dropdown__menu-01">
-                        Toggle
-                    </label>
-                    <input id="toggleMenu1" class="toggle__dropdown" type="checkbox" hidden />
-                    <ul id="dropdownMenu1" class="dropdown__menu" aria-labelledby="toggle__button-01" hidden>
-                        <li>
-                            <a href="/">Link 4</a>
-                        </li>
-                        <li>
-                            <a href="/">Link 5</a>
-                        </li>
-                        <li>
-                            <a href="/">Link 6</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="navbar__item navbar__dropdown">
-                <div class="navbar__item-content drew__dropdown" aria-label="Dropdown Menu">
-                    <label for="dropdown-02" id="toggle__button-02" class="toggle__button" style="display:block"
-                        tabindex="0" role="button" aria-expanded="false" aria-controls="dropdown__menu-02">
-                        Toggle
-                    </label>
-                    <input id="toggleMenu2" class="toggle__dropdown" type="checkbox" hidden />
-                    <ul id="dropdownMenu2" class="dropdown__menu" aria-labelledby="toggle__button-02" hidden>
-                        <li>
-                            <a href="/">Link 4</a>
-                        </li>
-                        <li>
-                            <a href="/">Link 5</a>
-                        </li>
-                        <li>
-                            <a href="/">Link 6</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="navbar__item navbar__dropdown">
-                <div class="navbar__item-content drew__dropdown" aria-label="Dropdown Menu">
-                    <label for="toggleMenu3" id="toggle__button-03" class="toggle__button" style="display:block"
-                        tabindex="0" role="button" aria-expanded="false" aria-controls="dropdown__menu-03">
-                        Toggle
-                    </label>
-                    <input id="toggleMenu3" class="toggle__dropdown" type="checkbox" hidden />
-                    <ul id="dropdownMenu3" class="dropdown__menu" aria-labelledby="toggle__button-03" hidden>
-                        <li>
-                            <a href="/">Link 4</a>
-                        </li>
-                        <li>
-                            <a href="/">Link 5</a>
-                        </li>
-                        <li>
-                            <a href="/">Link 6</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </aside>
-    <label for="drawer" class="backdrop"></label> -->
 
+    <input type="checkbox" id="drawer" hidden>
+    <aside id="drawer__menu" class="drawer__menu">
 
-    <aside class="drawer drawer--left" id="drawer-name" data-drawer-target>
-        <div class="drawer__overlay" data-drawer-close tabindex="-1"></div>
-            <div class="drawer__wrapper">
+        <div class="drawer__header">
+            <label for="toggleMenu1" id="toggle__button-01" class="toggle__button" tabindex="0" role="button" aria-expanded="false" aria-controls="dropdown__menu-01">
+                Toggle 1
+            </label>
 
-                <div class="drawer__header">
-                    <label for="toggleMenu1" id="toggle__button-01" class="toggle__button" style="display:block"  tabindex="0" role="button" aria-expanded="false" aria-controls="dropdown__menu-01">
-                        Toggle 1
-                    </label>
-                    <label for="toggleMenu2" id="toggle__button-02" class="toggle__button" style="display:block" tabindex="0" role="button" aria-expanded="false" aria-controls="dropdown__menu-02">
-                        Toggle 2
-                    </label>
-                    <label for="toggleMenu3" id="toggle__button-03" class="toggle__button" style="display:block"  tabindex="0" role="button" aria-expanded="false" aria-controls="dropdown__menu-03">
-                        Toggle 3
-                    </label>
-                    <button class="drawer__close" data-drawer-close aria-label="Close Drawer"></button>
-                </div>
-
-                <div class="drawer__content">
-
-                    <div class="navbar__item-content drew__dropdown" aria-label="Drawer Menu 1">
-                        <input id="toggleMenu1" class="toggle__dropdown" type="checkbox" hidden />
-                        <ul id="dropdownMenu1" class="dropdown__menu" aria-labelledby="toggle__button-01" hidden>
-                            <li>
-                                <a href="/">Link 1</a>
-                            </li>
-                            <li>
-                                <a href="/">Link 2</a>
-                            </li>
-                            <li>
-                                <a href="/">Link 3</a>
-                            </li>
-                        </ul>
-                    </div>
-        
-                    <div class="navbar__item-content drew__dropdown" aria-label="Drawer Menu 2">
-                        <input id="toggleMenu2" class="toggle__dropdown" type="checkbox" hidden />
-                        <ul id="dropdownMenu2" class="dropdown__menu" aria-labelledby="toggle__button-02" hidden>
-                            <li>
-                                <a href="/">Link 4</a>
-                            </li>
-                            <li>
-                                <a href="/">Link 5</a>
-                            </li>
-                            <li>
-                                <a href="/">Link 6</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="navbar__item-content drew__dropdown" aria-label="Drawer Menu 1">
-                        <input id="toggleMenu3" class="toggle__dropdown" type="checkbox" hidden />
-                        <ul id="dropdownMenu3" class="dropdown__menu" aria-labelledby="toggle__button-03" hidden>
-                            <li>
-                                <a href="/">Link 7</a>
-                            </li>
-                            <li>
-                                <a href="/">Link 8</a>
-                            </li>
-                            <li>
-                                <a href="/">Link 9</a>
-                            </li>
-                        </ul>  
-                    </div>
-
-                </div>
-
-            </div>
+            <label for="toggleMenu2" id="toggle__button-02" class="toggle__button" tabindex="0" role="button" aria-expanded="false" aria-controls="dropdown__menu-02">
+                Toggle 2
+            </label>
+            <label for="toggleMenu3" id="toggle__button-03" class="toggle__button" tabindex="0" role="button" aria-expanded="false" aria-controls="dropdown__menu-03">
+                Toggle 3
+            </label>
+            <button class="drawer__close" data-drawer-close aria-label="Close Drawer"></button>
         </div>
+
+        <div class="drawer__content">
+
+            <div class="drew__dropdown">
+                <input type="radio" 
+                id="toggleMenu1" 
+                name="toggleMenu" 
+                value="toggleMenu1" 
+                class="toggle__dropdown" 
+                />
+                <ul id="dropdownMenu1" class="dropdown__menu">
+                    <li>
+                        <a href="/">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="/">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="/">Link 3</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="drew__dropdown">
+                <input type="radio" 
+                id="toggleMenu2" 
+                name="toggleMenu" 
+                value="toggleMenu2" 
+                class="toggle__dropdown"
+                />
+                <ul id="dropdownMenu2" class="dropdown__menu">
+                    <li>
+                        <a href="/">Link 4</a>
+                    </li>
+                    <li>
+                        <a href="/">Link 5</a>
+                    </li>
+                    <li>
+                        <a href="/">Link 6</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="drew__dropdown">
+                <input type="radio" 
+                id="toggleMenu3" 
+                name="toggleMenu" 
+                value="toggleMenu3" 
+                class="toggle__dropdown" 
+                />
+                <ul id="dropdownMenu3" class="dropdown__menu">
+                    <li>
+                        <a href="/">Link 7</a>
+                    </li>
+                    <li>
+                        <a href="/">Link 8</a>
+                    </li>
+                    <li>
+                        <a href="/">Link 9</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
     </aside>
+    <label for="drawer" class="backdrop toggle__button" id="backdrop"></label>
 
+    <script>
+        let nav = document.querySelector('.navbar__menu');
+        console.log(`
+            # childElementCount: ${nav.childElementCount},
+            # firstChild: ${nav.firstChild},
+            # tagName: ${nav.tagName},
+            # firstElementChild: ${nav.firstElementChild},
+            # innerHTML: ${nav.innerHTML},
+            # lastChild: ${nav.lastChild},
+            # replaceChild: ${nav.replaceChild},
+            
+        `)
 
+        nav.innerHTML.includes('logo').replaceChild(document.querySelector('#logo'), document.querySelector('#red'))
+
+        if (nav.innerHTML.includes("logo")) {
+            document.querySelector('#logo').style.backgroundColor="blue";
+        } else {
+            document.querySelector('#logo').style.backgroundColor="orange";
+
+        }
+    </script>
     <script src="navbar.js"></script>
-    <script src="drawer.js"></script>
 
-</body>
-
-</html>
+</body></html>

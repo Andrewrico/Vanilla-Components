@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="#" onclick="toggleMenu('menu1', this)">Toggle</a>
+    <a href="#" onclick="toggleMenu('menu2', this)">Toggle</a>
+
+</body>
+<script>
+    function toggleMenu(id,src) {
+	var element = document.getElementById(id);
+    if (!element) {
+        element = document.createElement("div");
+        element.id = id;
+        var link = document.createElement("a");
+        link.href = "javascript:void(0)";
+        link.appendChild(document.createTextNode("Content"));
+        element.appendChild(link);
+        src.parentElement.appendChild(element);
+    } else {
+        element.style.display = ('none' == element.style.display ? 'block' : 'none');
+    }
+}
+
+</script>
+</html>
