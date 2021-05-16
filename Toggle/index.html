@@ -19,10 +19,6 @@
         nav input[hidden]:checked+*[hidden] {
             display: block;
         }
-
-        .large {
-            background: red;
-        }
     </style>
 
     <style>
@@ -46,23 +42,30 @@
 </head>
 
 <body>
-    <label data-toggle role="toggle" type="button" for="toggle" id="label--toggle" tabindex="0" aria-expanded="false" aria-haspopup="false">
-        <svg enable-background="new 0 0 24 24" viewBox="0 0 24 24" height="32" width="32" xmlns="http://www.w3.org/2000/svg" aria-label="Capillus Link">
-            <path d="m21.25 0h-18.5c-1.517 0-2.75 1.233-2.75 2.75v18.5c0 1.517 1.233 2.75 2.75 2.75h18.5c1.517 0 2.75-1.233 2.75-2.75v-18.5c0-1.517-1.233-2.75-2.75-2.75zm-5.25 17h-8c-.553 0-1-.448-1-1s.447-1 1-1h8c.553 0 1 .448 1 1s-.447 1-1 1zm0-4h-8c-.553 0-1-.448-1-1s.447-1 1-1h8c.553 0 1 .448 1 1s-.447 1-1 1zm0-4h-8c-.553 0-1-.448-1-1s.447-1 1-1h8c.553 0 1 .448 1 1s-.447 1-1 1z" />
-        </svg>
+    <label
+        data-toggle 
+        for="toggle" 
+        id="label--toggle"
+        type="button" 
+        role="switch" 
+        tabindex="0" 
+        aria-expanded="false" 
+        aria-haspopup="false"
+        aria-labelledby="label--menu"
+    >   <svg enable-background="new 0 0 24 24" viewBox="0 0 24 24" height="32" width="32" xmlns="http://www.w3.org/2000/svg" > <path d="m21.25 0h-18.5c-1.517 0-2.75 1.233-2.75 2.75v18.5c0 1.517 1.233 2.75 2.75 2.75h18.5c1.517 0 2.75-1.233 2.75-2.75v-18.5c0-1.517-1.233-2.75-2.75-2.75zm-5.25 17h-8c-.553 0-1-.448-1-1s.447-1 1-1h8c.553 0 1 .448 1 1s-.447 1-1 1zm0-4h-8c-.553 0-1-.448-1-1s.447-1 1-1h8c.553 0 1 .448 1 1s-.447 1-1 1zm0-4h-8c-.553 0-1-.448-1-1s.447-1 1-1h8c.553 0 1 .448 1 1s-.447 1-1 1z" /></svg>
     </label>
 
-    <nav class="menu__dropdown" aria-labelledby="label--toggle">
+    <nav class="menu__dropdown" aria-labelledby="label--menu">
+        <span id="label--menu" class="visually-hidden" aria-hidden="true">Main Menu</span>
         <input id="toggle" type="checkbox" hidden>
-        <ul class="menu__list" hidden>
+        <ul class="menu__list" hidden tabindex="0" aria-label="Main Menu List">
             <li>
                 <a href="/">CONTENT 1</a>
             </li>
             <li>
                 <h1>
-                    <img src="logo.svg" alt="Company Logo Img">
+                    <img src="logo.svg" alt="Company Logo Img" aria-details="details">
                 </h1>
-
             </li>
             <li>
                 <a href="/">CONTENT 2</a>
@@ -70,7 +73,7 @@
         </ul>
     </nav>
 
-    <header>
+    <header id="details">
         <div role="region" aria-labelledby="region-1">
             <h1 id="region-1">H1 headline</h1>
         </div>
@@ -81,41 +84,51 @@
 
 
     <script>
-        let toggleButton = document.querySelector("*[data-toggle]");
-        let toggleMenu = document.querySelector("nav input[hidden] + ul");
-        toggleButton.addEventListener("click", setAriaAttributes);
-        toggleButton.addEventListener("keydown", setKeySupport);
-        function setKeySupport(toggleButton) {
-            var keyCode = toggleButton.keyCode || toggleButton.which;
-            if (keyCode == 13) {
-                if (toggleMenu.style.display === "none") {
-                    setAriaAttributes(toggleButton);
-                } else {
-                    setAriaAttributes(toggleButton);
+        (function () {
+            // Get DOM Elements
+            let toggle = document.querySelector("*[data-toggle]");
+            let menu = document.querySelector("nav input[hidden] + ul");
+            // Declare Events Listeners
+            toggle.addEventListener("click", setAriaAttributes);
+            toggle.addEventListener("keydown", setKeySupport);
+            // Add Keydown Support
+            function setKeySupport(toggle) {
+                var keyCode = toggle.keyCode || toggle.which;
+                if (keyCode == 13) {
+                    if (menu.style.display === "none") {
+                        setAriaAttributes(toggle);
+                    } else {
+                        setAriaAttributes(toggle);
+                    }
                 }
             }
-        }
-        function setAriaAttributes(haspopup, expanded) {
-            var haspopup = toggleButton.getAttribute("aria-haspopup");
-            var expanded = toggleButton.getAttribute("aria-expanded");
-            if (haspopup == "true" || expanded == "true") {
-                hideMenu(toggleMenu)
-                haspopup = "false";
-                expanded = "false";
-            } else {
-                showMenu(toggleMenu)
-                haspopup = "true";
-                expanded = "true";
-            }
-            toggleButton.setAttribute("aria-haspopup", haspopup);
-            toggleButton.setAttribute("aria-expanded", expanded);
-        }
-        function showMenu() {
-            return document.querySelector("nav input[hidden] + ul").style.display = "block";
-        }
-        function hideMenu() {
-            return document.querySelector("nav input[hidden] + ul").style.display = "none";
-        }
+            // Add Aria Support
+            function setAriaAttributes(haspopup, expanded) {
+                var haspopup = toggle.getAttribute("aria-haspopup");
+                var expanded = toggle.getAttribute("aria-expanded");
+                if (haspopup == "true" || expanded == "true") {
+                    hideMenu(menu);
+                    haspopup = "false";
+                    expanded = "false";
+                } else {
+                    showMenu(menu);
+                    haspopup = "true";
+                    expanded = "true";
+                };
+                toggle.setAttribute("aria-haspopup", haspopup);
+                toggle.setAttribute("aria-expanded", expanded);
+            };
+            // Show Menu
+            function showMenu() {
+                return document.querySelector("nav input[hidden] + ul").style.display = "block";
+            };
+            // Hide Menu
+            function hideMenu() {
+                return document.querySelector("nav input[hidden] + ul").style.display = "none";
+            };
+        }());
     </script>
 
-</body></html>
+</body>
+
+</html>
