@@ -46,7 +46,7 @@
 </head>
 
 <body>
-    <label data-toggle role="toggle" type="button" for="toggle" id="label--toggle" tabindex="0" aria-expanded="false">
+    <label data-toggle role="toggle" type="button" for="toggle" id="label--toggle" tabindex="0" aria-expanded="false" aria-haspopup="false">
         <svg enable-background="new 0 0 24 24" viewBox="0 0 24 24" height="32" width="32" xmlns="http://www.w3.org/2000/svg" aria-label="Capillus Link">
             <path d="m21.25 0h-18.5c-1.517 0-2.75 1.233-2.75 2.75v18.5c0 1.517 1.233 2.75 2.75 2.75h18.5c1.517 0 2.75-1.233 2.75-2.75v-18.5c0-1.517-1.233-2.75-2.75-2.75zm-5.25 17h-8c-.553 0-1-.448-1-1s.447-1 1-1h8c.553 0 1 .448 1 1s-.447 1-1 1zm0-4h-8c-.553 0-1-.448-1-1s.447-1 1-1h8c.553 0 1 .448 1 1s-.447 1-1 1zm0-4h-8c-.553 0-1-.448-1-1s.447-1 1-1h8c.553 0 1 .448 1 1s-.447 1-1 1z" />
         </svg>
@@ -81,40 +81,40 @@
 
 
     <script>
-        let toggle = document.querySelector("*[data-toggle]");
-        toggle.addEventListener("click", aria);
-        toggle.addEventListener("keydown", keydown);
-
-        function keydown(event) {
-            let keyCode = event.keyCode || event.which;
+        let toggleButton = document.querySelector("*[data-toggle]");
+        let toggleMenu = document.querySelector("nav input[hidden] + ul");
+        toggleButton.addEventListener("click", setAriaAttributes);
+        toggleButton.addEventListener("keydown", setKeySupport);
+        function setKeySupport(toggleButton) {
+            var keyCode = toggleButton.keyCode || toggleButton.which;
             if (keyCode == 13) {
-                let menu = document.querySelector("nav input[hidden] + ul");
-                if (menu.style.display === "none") {
-                    aria("true");
-                    display("block")
+                if (toggleMenu.style.display === "none") {
+                    setAriaAttributes(toggleButton);
                 } else {
-                    aria("false");
-                    display("none")
+                    setAriaAttributes(toggleButton);
                 }
             }
         }
-
-        function aria(state) {
-            let state = toggle.getAttribute("aria-expanded");
-            if (state === "true") {
-                state = "false";
-                display("none")
+        function setAriaAttributes(haspopup, expanded) {
+            var haspopup = toggleButton.getAttribute("aria-haspopup");
+            var expanded = toggleButton.getAttribute("aria-expanded");
+            if (haspopup == "true" || expanded == "true") {
+                hideMenu(toggleMenu)
+                haspopup = "false";
+                expanded = "false";
             } else {
-                state = "true";
-                display("block")
-
+                showMenu(toggleMenu)
+                haspopup = "true";
+                expanded = "true";
             }
-            return toggle.setAttribute("aria-expanded", state);
+            toggleButton.setAttribute("aria-haspopup", haspopup);
+            toggleButton.setAttribute("aria-expanded", expanded);
         }
-
-
-        function display(state) {
-            return document.querySelector("nav input[hidden] + ul").style.display = state;
+        function showMenu() {
+            return document.querySelector("nav input[hidden] + ul").style.display = "block";
+        }
+        function hideMenu() {
+            return document.querySelector("nav input[hidden] + ul").style.display = "none";
         }
     </script>
 
